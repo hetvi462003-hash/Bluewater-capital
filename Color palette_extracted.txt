@@ -1,0 +1,19 @@
+﻿Blue Water Capital Website Palette is listed below:
+Color
+Hex
+Best Use
+Deep Navy
+#0B1F3A
+Main headers, navigation, footer
+Executive Blue
+#164B7A
+Buttons, links, highlights
+Light Blue
+#DCEAF5
+Section backgrounds, subtle accents
+White
+#FFFFFF
+Main backgrounds
+Soft Silver/Grey
+#E7EBF0
+Borders, secondary elements, backgrounds

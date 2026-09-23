@@ -1,0 +1,318 @@
+﻿SCOPE OF WORK
+Blue Water Capital – CMS Website Development
+1. Project Overview
+Cayman Webtech will design and develop a professional, responsive, CMS-based website for Blue Water Capital.
+The website will present the consultancy’s services, provide educational resources, and introduce a dedicated Business Resource Library where visitors can browse and request business templates, forms, permit-related formats and other professional resources.
+The initial resource purchasing functionality will be enquiry-based, allowing users to view the resource and price and submit their information through a form.
+2. Website Structure
+The website will include the following primary pages/sections:
+Home
+About
+Services
+Blue Business Library
+Resources
+About Cayman
+Why Choose Blue
+Contact
+Book a Consultation
+3. Homepage
+The homepage will provide an overview of Blue Water Capital and its key offerings.
+The homepage will include:
+Hero/banner section
+Company introduction
+Key service highlights
+Immigration & Residency overview
+Caymanian History & Culture Training overview
+AML & Compliance overview
+Corporate & Business Services overview
+Training & Professional Development overview
+Business Library introduction
+Resources introduction
+Why Choose Blue section
+Consultation call-to-action
+Contact call-to-action
+4. About
+The About section will present information about Blue Water Capital, including:
+Company overview
+Professional expertise
+Cayman-focused experience
+Approach to client service
+Company values
+Practical and personalised support
+5. Services
+A dedicated Services section will present the consultancy’s core services.
+The website will include the following service areas:
+Immigration & Residency
+Work Permit & Other Applications
+Residency, Status & Citizenship
+Visa & Travel Services
+Immigration Advisory & Support
+Caymanian History & Culture Training
+Training overview
+Training topics
+Course information
+Registration/enquiry functionality
+AML & Compliance
+AML Officer Services
+AML Programme Development
+AML Policies & Procedures
+Risk Assessments
+CDD Reviews
+AML Remediation
+Compliance Programme Reviews
+Regulatory Readiness
+FATCA & CRS Remediation
+Compliance Training
+Ongoing Compliance Support
+Corporate & Business Services
+Company Incorporation
+Trade & Business Licensing
+Business Registration Support
+Corporate Administration
+Regulatory Application Support
+Business Compliance Support
+Corporate Compliance Support
+Business Documentation
+Ongoing Corporate Services
+Training & Professional Development
+The website will present available training offerings and relevant training areas, including:
+Anti-Money Laundering
+Fraud Prevention
+FATCA & CRS
+Customer Service
+Compliance Awareness
+Regulatory Requirements
+Caymanian History & Culture
+Business Practices
+Each service area will include relevant calls-to-action for enquiries or consultations.
+6. Blue Business Library
+A dedicated Blue Business Library will be developed to showcase professional business templates and resources.
+Resources will be organised into categories for easy browsing.
+Initial categories will include:
+Business Essentials
+Business Plan Template
+Invoice Template
+Business Proposal
+Company Profile
+Meeting Agenda
+Minutes Template
+HR & People
+Employment Contract
+Employee Handbook
+Performance Review
+Disciplinary Form
+Leave Request Form
+Policies and Procedures
+AML & Compliance
+AML Remediation
+AML Policy
+Compliance Manual
+Risk Assessment
+CDD Checklist
+AML Training Register
+Compliance Monitoring Template
+Corporate Governance
+Board Meeting Template
+Board Minutes
+Conflict of Interest Policy
+Director Declaration
+Corporate Governance Policy
+Company Incorporation Templates
+Cayman Business
+Trade & Business Licence Checklist
+Cayman Business Start-Up Checklist
+Regulatory Compliance Checklist
+Cayman Business Planning Resources
+7. Resource Listing & Detail Pages
+The Business Library will include resource listing and individual resource detail functionality.
+Each resource may display:
+Resource title
+Category
+Description
+Preview/image where applicable
+Price
+Request/Purchase button
+Relevant disclaimer/information
+Resources will be manageable through the CMS.
+8. Resource Enquiry / Purchase Form
+For the initial website, resources will use a request-based purchase process rather than a full online checkout system.
+The user journey will be:
+Browse Resource → View Price → Select Resource → Complete Form → Submit Request
+The form will collect relevant customer information, such as:
+Name
+Email
+Phone number
+Company/business name
+Selected resource
+Additional comments/information
+The selected resource and applicable price will be included with the submitted enquiry.
+9. Resource Management
+The CMS will allow authorised administrators to:
+Add new resources
+Edit resources
+Remove/deactivate resources
+Create and manage categories
+Update descriptions
+Update prices
+Upload/update resource files
+Control resource visibility
+10. Resources / Knowledge Centre
+A separate Resources section will be developed for informational and educational content.
+The section will include categories such as:
+Immigration Guides
+Business Guides
+Compliance Resources
+Cayman Guides
+Frequently Asked Questions
+The CMS will allow administrators to create and manage resource articles/content.
+11. About Cayman
+The website will include an informational About Cayman section covering areas such as:
+Cayman history
+Caymanian culture
+Community
+Business environment
+Institutions
+Quality of life
+Opportunities in Cayman
+12. Why Choose Blue
+A dedicated section will communicate Blue Water Capital’s key differentiators, including:
+Cayman-focused expertise
+Professional experience
+Practical guidance
+Personalised service
+End-to-end support
+Integrity and transparency
+13. Contact
+The Contact section will include:
+Business contact information
+Address
+Phone
+Email
+Business hours
+Contact enquiry form
+Consultation call-to-action
+14. Book a Consultation
+A consultation enquiry/booking form will be incorporated into the website.
+The form will allow prospective clients to provide relevant information regarding:
+Name
+Contact information
+Company/business
+Service required
+Enquiry details
+Preferred consultation information, where applicable
+Consultation calls-to-action will also be displayed throughout relevant website sections.
+15. CMS Functionality
+The website will include a CMS administration interface for managing website content.
+The administrator will be able to manage applicable:
+Website pages
+Services
+Resource articles
+FAQs
+Business Library resources
+Resource categories
+Resource pricing
+Images
+Selected website content/settings
+16. Responsive Website Development
+The website will be developed to provide an optimised experience across:
+Desktop
+Laptop
+Tablet
+Mobile devices
+Website navigation, content, forms, images and resource listings will be adapted for different screen sizes.
+17. Website Design & User Experience
+The website will be designed with a professional consultancy-focused user experience.
+The design will prioritise:
+Professional presentation
+Clear navigation
+Easy access to services
+Strong calls-to-action
+Clear resource presentation
+Trust and credibility
+Mobile usability
+Consistent branding
+18. Basic SEO Implementation
+The website development will include basic SEO implementation, including:
+SEO-friendly page structure
+Page titles
+Meta descriptions
+Heading structure
+SEO-friendly URLs
+Image optimisation
+Mobile responsiveness
+Sitemap configuration
+19. Forms & Enquiries
+The website will include enquiry functionality for:
+General enquiries
+Service enquiries
+Consultation requests
+Resource purchase requests
+Training enquiries/registration
+Form submissions will be configured to notify the designated business contact.
+20. Testing & Launch
+Before launch, the website will be tested for:
+Responsive layouts
+Navigation
+Forms
+Resource functionality
+CMS functionality
+Links
+Mobile usability
+Major browser compatibility
+General website functionality
+Following completion and approval, the website will be prepared for production deployment.
+21. Initial Resource Purchasing Functionality
+The initial website will provide a simple enquiry-based resource purchasing experience.
+Users will be able to:
+Browse available resources.
+View resource information.
+View the applicable price.
+Submit their information.
+Select the resource they wish to purchase/request.
+Submit the request to Blue Water Capital for processing.
+Full e-commerce, online payment processing and automated digital delivery are outside the initial website functionality.
+22. Future Expansion Capability
+The website architecture will allow the Business Library to be expanded in the future with additional functionality, including:
+Online payment processing
+Shopping cart and checkout
+Automated digital downloads
+Customer accounts
+Purchase history
+Membership/subscription functionality
+Premium resource access
+Resource bundles
+Automated invoices/receipts
+These features are not part of the current Scope of Work and may be developed separately in the future.
+23. Scope Summary
+The project will deliver a complete CMS-based consultancy website consisting of:
+Website
+Professional responsive design
+CMS functionality
+Homepage
+About
+Services
+Why Choose Blue
+About Cayman
+Contact
+Consultation functionality
+Business Resource Library
+Resource catalogue
+Categories
+Individual resource pages
+Resource pricing
+Resource management through CMS
+Customer resource enquiry/request forms
+Knowledge Centre
+Guides
+Business resources
+Compliance resources
+Cayman information
+FAQs
+Technical
+Responsive development
+Basic SEO implementation
+Website forms
+CMS administration
+Testing
+Production launch
+This Scope of Work defines the website design and development deliverables for the initial project.
