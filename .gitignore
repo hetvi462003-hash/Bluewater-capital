@@ -4,3 +4,10 @@ dist
 backend/.env
 .vite
 *.log
+
+# Client documents (private)
+*.docx
+*_clean.txt
+*_extracted.txt
+Medila files to use-20260915T050807Z-1-001/
+public/assets/
