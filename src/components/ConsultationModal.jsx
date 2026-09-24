@@ -15,6 +15,15 @@ export default function ConsultationModal({ isOpen, onClose, initialService = ''
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  React.useEffect(() => {
+    if (isOpen) {
+      setFormData(prev => ({
+        ...prev,
+        service: initialService || 'Immigration & Residency'
+      }));
+    }
+  }, [isOpen, initialService]);
+
   if (!isOpen) return null;
 
   const handleSubmit = async (e) => {
