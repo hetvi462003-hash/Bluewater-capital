@@ -32,13 +32,15 @@ app.get('/api/health', (req, res) => {
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('Successfully connected to MongoDB.');
-    // Start server
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
+    // Start server if not running on Vercel
+    if (process.env.NODE_ENV !== 'production' || process.env.RENDER) {
+      app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+      });
+    }
   })
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error.message);
-    // Exit process with failure if DB connection fails
-    process.exit(1);
   });
+
+module.exports = app;
