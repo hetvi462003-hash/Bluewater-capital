@@ -240,7 +240,7 @@ export default function AdminDashboard() {
       }}>
         {/* Sidebar Header */}
         <div style={{ padding: '30px 24px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-          <img src="/images/logo clear file.png" alt="Logo" style={{ width: '140px', filter: 'brightness(0) invert(1)', opacity: 0.9, marginBottom: '20px' }} />
+          <img src="/images/bw1.png" alt="Logo" style={{ width: '140px', filter: 'brightness(0) invert(1)', opacity: 0.9, marginBottom: '20px' }} />
           <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', fontWeight: 700 }}>
             Management Console
           </div>
