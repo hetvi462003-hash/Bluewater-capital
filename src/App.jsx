@@ -18,8 +18,8 @@ import ResourceModal from './components/ResourceModal';
 import CaymanCalculator from './components/CaymanCalculator';
 import FloatingActionHub from './components/FloatingActionHub';
 import ScrollReveal from './components/ScrollReveal';
+import AdminDashboard from './components/AdminDashboard';
 import { ArrowRight, Sparkles, ShieldCheck, BookOpen, Award, Building, Phone, Calendar } from 'lucide-react';
-
 
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 
@@ -27,6 +27,7 @@ export default function App() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const activeTab = pathname === '/' ? 'home' : pathname.replace('/', '');
+  const isAdminRoute = pathname === '/admin';
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
   const [consultationInitialService, setConsultationInitialService] = useState('');
   const [isResourceModalOpen, setIsResourceModalOpen] = useState(false);
@@ -170,14 +171,14 @@ export default function App() {
       }} />
 
       {/* Top Bar Contact Header */}
-      <TopBar />
+      {!isAdminRoute && <TopBar />}
 
       {/* Main Sticky Header Navbar */}
-      <Navbar 
+      {!isAdminRoute && <Navbar 
         activeTab={activeTab} 
         setActiveTab={handleTabChange} 
         onOpenConsultation={() => handleOpenConsultation()} 
-      />
+      />}
 
       {/* Dynamic View Sections */}
       <main style={{ flex: 1 }}>
@@ -449,14 +450,17 @@ export default function App() {
             <MarqueeTicker />
             <ContactConsultation selectedService={consultationInitialService} />
           </>} />
+
+        {/* PAGE 10: ADMIN DASHBOARD */}
+        <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </main>
 
       {/* Floating Action Quick Hub */}
-      <FloatingActionHub onOpenConsultation={() => handleOpenConsultation()} />
+      {!isAdminRoute && <FloatingActionHub onOpenConsultation={() => handleOpenConsultation()} />}
 
       {/* Footer */}
-      <Footer onNavigate={handleTabChange} />
+      {!isAdminRoute && <Footer onNavigate={handleTabChange} />}
 
       {/* Global Popup Modals */}
       <ConsultationModal 
