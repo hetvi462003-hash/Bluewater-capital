@@ -1,8 +1,10 @@
 import React from 'react';
 import { Compass, Briefcase, Lightbulb, Users, CheckCircle, ShieldCheck } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
+import { useNavigate } from 'react-router-dom';
 
 export default function WhyChooseBlue({ onBookConsultation }) {
+  const navigate = useNavigate();
   const differentiators = [
     {
       title: "Cayman-Focused Expertise",
@@ -133,7 +135,7 @@ export default function WhyChooseBlue({ onBookConsultation }) {
                 <p style={{ fontSize: '1.2rem', color: 'var(--light-blue)', marginBottom: '24px' }}>
                   Tell us what you’re trying to accomplish. We’ll help you identify the requirements, understand the process and determine the best way forward.
                 </p>
-                <button onClick={onBookConsultation} className="btn-primary">
+                <button onClick={() => { window.scrollTo(0,0); navigate('/services'); }} className="btn-primary">
                   Get Started Today →
                 </button>
               </div>

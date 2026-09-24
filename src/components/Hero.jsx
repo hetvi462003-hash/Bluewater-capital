@@ -137,20 +137,6 @@ export default function Hero({ onExploreServices, onBookConsultation }) {
                   <ArrowRight size={18} className="animate-bounce-x" />
                 </button>
 
-                <button 
-                  onClick={onBookConsultation}
-                  className="btn-secondary"
-                  style={{ 
-                    padding: '16px 36px', 
-                    fontSize: '1rem',
-                    backgroundColor: 'var(--white)',
-                    color: 'var(--deep-navy)',
-                    border: '2px solid var(--deep-navy)',
-                    fontWeight: 700
-                  }}
-                >
-                  <span>Book a Consultation</span>
-                </button>
               </div>
             </div>
           </ScrollReveal>
