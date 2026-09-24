@@ -10,24 +10,6 @@ const adminRoutes = require('./routes/adminRoutes');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors({
-  origin: ['http://localhost:5173', 'https://bluewater-capital.vercel.app'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
-app.use(express.json());
-
-// Routes
-app.use('/api/consultations', consultationRoutes);
-app.use('/api/resources', resourceRoutes);
-app.use('/api/admin', adminRoutes);
-
-// Health check endpoint
-app.get('/api/health', (req, res) => {
-  res.status(200).json({ status: 'ok', message: 'Backend is running smoothly.' });
-});
-
 let cached = global.mongoose;
 
 if (!cached) {
@@ -56,6 +38,14 @@ async function connectDB() {
   return cached.conn;
 }
 
+// Middleware
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://bluewater-capital.vercel.app'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+app.use(express.json());
+
 // Middleware to ensure DB connection before handling API routes
 app.use(async (req, res, next) => {
   try {
@@ -65,6 +55,16 @@ app.use(async (req, res, next) => {
     console.error('DB Connection Error:', err);
     res.status(500).json({ success: false, error: 'Database Connection Error' });
   }
+});
+
+// Routes
+app.use('/api/consultations', consultationRoutes);
+app.use('/api/resources', resourceRoutes);
+app.use('/api/admin', adminRoutes);
+
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'ok', message: 'Backend is running smoothly.' });
 });
 
 // Start server if not running on Vercel
