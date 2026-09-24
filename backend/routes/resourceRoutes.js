@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const ResourceRequest = require('../models/ResourceRequest');
+const emailService = require('../utils/emailService');
 
 // @route   POST /api/resources
 // @desc    Submit a new resource request
@@ -18,6 +19,13 @@ router.post('/', async (req, res) => {
     });
 
     const savedResourceRequest = await newResourceRequest.save();
+
+    // Send email notifications asynchronously
+    if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+      emailService.sendAdminNotification('resource', savedResourceRequest);
+      emailService.sendClientConfirmation('resource', savedResourceRequest);
+    }
+
     res.status(201).json({ success: true, data: savedResourceRequest });
   } catch (error) {
     console.error('Error saving resource request:', error);

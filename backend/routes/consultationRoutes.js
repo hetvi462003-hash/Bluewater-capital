@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Consultation = require('../models/Consultation');
+const emailService = require('../utils/emailService');
 
 // @route   POST /api/consultations
 // @desc    Submit a new consultation request
@@ -20,6 +21,13 @@ router.post('/', async (req, res) => {
     });
 
     const savedConsultation = await newConsultation.save();
+    
+    // Send email notifications asynchronously
+    if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+      emailService.sendAdminNotification('consultation', savedConsultation);
+      emailService.sendClientConfirmation('consultation', savedConsultation);
+    }
+    
     res.status(201).json({ success: true, data: savedConsultation });
   } catch (error) {
     console.error('Error saving consultation:', error);
