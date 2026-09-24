@@ -20,10 +20,12 @@ router.post('/', async (req, res) => {
 
     const savedResourceRequest = await newResourceRequest.save();
 
-    // Send email notifications asynchronously
+    // Send email notifications
     if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
-      emailService.sendAdminNotification('resource', savedResourceRequest);
-      emailService.sendClientConfirmation('resource', savedResourceRequest);
+      await Promise.allSettled([
+        emailService.sendAdminNotification('resource', savedResourceRequest),
+        emailService.sendClientConfirmation('resource', savedResourceRequest)
+      ]);
     }
 
     res.status(201).json({ success: true, data: savedResourceRequest });
