@@ -88,4 +88,26 @@ router.put('/resources/:id', authMiddleware, async (req, res) => {
   }
 });
 
+// DELETE resource request
+router.delete('/resources/:id', authMiddleware, async (req, res) => {
+  try {
+    await ResourceRequest.findByIdAndDelete(req.params.id);
+    res.json({ msg: 'Resource request removed' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// DELETE consultation request
+router.delete('/consultations/:id', authMiddleware, async (req, res) => {
+  try {
+    await Consultation.findByIdAndDelete(req.params.id);
+    res.json({ msg: 'Consultation removed' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 module.exports = router;

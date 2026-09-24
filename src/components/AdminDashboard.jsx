@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Lock, ShieldCheck, FileText, Briefcase, CheckCircle, Clock, LogOut, Activity, Users, LayoutDashboard, Settings, Check } from 'lucide-react';
+import { Lock, ShieldCheck, FileText, Briefcase, CheckCircle, Clock, LogOut, Activity, Users, LayoutDashboard, Settings, Check, Trash2, Search, Filter, Download } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 export default function AdminDashboard() {
@@ -8,10 +8,13 @@ export default function AdminDashboard() {
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
   
-  const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard', 'consultations', 'resources'
+  const [activeTab, setActiveTab] = useState('dashboard');
   const [consultations, setConsultations] = useState([]);
   const [resources, setResources] = useState([]);
   const [loading, setLoading] = useState(false);
+  
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filterStatus, setFilterStatus] = useState('All'); // 'All', 'Pending', 'Completed'
 
   const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
@@ -78,17 +81,81 @@ export default function AdminDashboard() {
         body: JSON.stringify({ status: newStatus })
       });
       if (res.ok) {
-        fetchData(); // refresh data
+        fetchData(); 
       }
     } catch (error) {
       console.error('Failed to update status', error);
     }
   };
 
+  const deleteRecord = async (type, id) => {
+    if(!window.confirm('Are you sure you want to permanently delete this record?')) return;
+    try {
+      const res = await fetch(`${API_URL}/api/admin/${type}/${id}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (res.ok) {
+        fetchData();
+      }
+    } catch (error) {
+      console.error('Failed to delete', error);
+    }
+  };
+
+  const exportToCSV = (type) => {
+    const data = type === 'consultations' ? consultations : resources;
+    if(data.length === 0) return;
+    
+    let csvContent = "data:text/csv;charset=utf-8,";
+    const headers = Object.keys(data[0]).filter(k => !['_id', '__v'].includes(k));
+    csvContent += headers.join(",") + "\n";
+    
+    data.forEach(row => {
+      const rowData = headers.map(header => {
+        let val = row[header];
+        if(val === null || val === undefined) val = "";
+        return `"${String(val).replace(/"/g, '""')}"`;
+      });
+      csvContent += rowData.join(",") + "\n";
+    });
+    
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `${type}_export_${new Date().toISOString().split('T')[0]}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const pendingConsultations = consultations.filter(c => c.status !== 'Contacted').length;
   const pendingResources = resources.filter(r => r.status !== 'Sent').length;
 
-  // Premium Login Screen
+  const getFilteredData = (data, isConsultation) => {
+    return data.filter(item => {
+      // Status Filter
+      const isCompleted = isConsultation ? item.status === 'Contacted' : item.status === 'Sent';
+      if(filterStatus === 'Pending' && isCompleted) return false;
+      if(filterStatus === 'Completed' && !isCompleted) return false;
+      
+      // Search Filter
+      if(searchTerm) {
+        const searchLow = searchTerm.toLowerCase();
+        const searchMatch = (
+          (item.name && item.name.toLowerCase().includes(searchLow)) ||
+          (item.email && item.email.toLowerCase().includes(searchLow)) ||
+          (item.phone && item.phone.toLowerCase().includes(searchLow))
+        );
+        if(!searchMatch) return false;
+      }
+      return true;
+    });
+  };
+
+  const filteredConsultations = getFilteredData(consultations, true);
+  const filteredResources = getFilteredData(resources, false);
+
   if (!token) {
     return (
       <div style={{ 
@@ -222,11 +289,9 @@ export default function AdminDashboard() {
     );
   }
 
-  // Dashboard Layout
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: '#F0F4F8' }}>
       
-      {/* Sidebar Navigation */}
       <aside style={{
         width: '280px',
         background: 'var(--deep-navy)',
@@ -238,7 +303,6 @@ export default function AdminDashboard() {
         height: '100vh',
         boxShadow: '4px 0 20px rgba(0,0,0,0.1)'
       }}>
-        {/* Sidebar Header */}
         <div style={{ padding: '30px 24px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
           <img src="/images/bw1.png" alt="Logo" style={{ width: '140px', filter: 'brightness(0) invert(1)', opacity: 0.9, marginBottom: '20px' }} />
           <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.4)', fontWeight: 700 }}>
@@ -246,7 +310,6 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* Sidebar Links */}
         <div style={{ padding: '20px 12px', flex: 1, display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {[
             { id: 'dashboard', label: 'Overview', icon: LayoutDashboard },
@@ -258,7 +321,7 @@ export default function AdminDashboard() {
             return (
               <button
                 key={item.id}
-                onClick={() => setActiveTab(item.id)}
+                onClick={() => { setActiveTab(item.id); setSearchTerm(''); setFilterStatus('All'); }}
                 style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                   padding: '14px 16px', borderRadius: '10px',
@@ -287,7 +350,6 @@ export default function AdminDashboard() {
           })}
         </div>
 
-        {/* Sidebar Footer */}
         <div style={{ padding: '20px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
           <button 
             onClick={handleLogout} 
@@ -306,10 +368,8 @@ export default function AdminDashboard() {
         </div>
       </aside>
 
-      {/* Main Content Area */}
       <main style={{ flex: 1, padding: '40px 50px', overflowY: 'auto' }}>
         
-        {/* Top Header */}
         <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }}>
           <div>
             <h1 style={{ fontSize: '2rem', color: 'var(--deep-navy)', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '6px' }}>
@@ -332,12 +392,10 @@ export default function AdminDashboard() {
           </div>
         </header>
 
-        {/* Dashboard Overview Tab */}
         {activeTab === 'dashboard' && (
           <ScrollReveal direction="up">
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '40px' }}>
               
-              {/* Stat Card 1 */}
               <div style={{ background: 'white', padding: '30px', borderRadius: '20px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.04)', display: 'flex', alignItems: 'center', gap: '20px' }}>
                 <div style={{ width: '70px', height: '70px', borderRadius: '18px', background: 'rgba(57,142,203,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Briefcase size={30} color="var(--executive-blue)" />
@@ -348,7 +406,6 @@ export default function AdminDashboard() {
                 </div>
               </div>
 
-              {/* Stat Card 2 */}
               <div style={{ background: 'white', padding: '30px', borderRadius: '20px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.04)', display: 'flex', alignItems: 'center', gap: '20px' }}>
                 <div style={{ width: '70px', height: '70px', borderRadius: '18px', background: 'rgba(16, 185, 129, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <FileText size={30} color="#10B981" />
@@ -359,7 +416,6 @@ export default function AdminDashboard() {
                 </div>
               </div>
 
-              {/* Stat Card 3 */}
               <div style={{ background: 'linear-gradient(135deg, var(--executive-blue) 0%, var(--deep-navy) 100%)', padding: '30px', borderRadius: '20px', boxShadow: '0 15px 35px rgba(22, 75, 122, 0.2)', color: 'white', position: 'relative', overflow: 'hidden' }}>
                 <div style={{ position: 'absolute', right: '-20px', bottom: '-20px', opacity: 0.1 }}>
                   <Activity size={150} />
@@ -373,7 +429,6 @@ export default function AdminDashboard() {
 
             </div>
 
-            {/* Quick Actions or Recent Activity could go here, for now just an illustration */}
             <div style={{ background: 'white', padding: '40px', borderRadius: '20px', boxShadow: '0 10px 30px rgba(0,0,0,0.03)', textAlign: 'center', border: '1px solid rgba(0,0,0,0.04)' }}>
               <div style={{ width: '80px', height: '80px', background: '#F8FAFC', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
                 <CheckCircle size={36} color="var(--light-blue)" />
@@ -384,19 +439,49 @@ export default function AdminDashboard() {
           </ScrollReveal>
         )}
 
-        {/* Data Tables Container */}
         {(activeTab === 'consultations' || activeTab === 'resources') && (
           <ScrollReveal direction="up">
             <div style={{ background: 'white', borderRadius: '20px', boxShadow: '0 15px 40px rgba(0,0,0,0.04)', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.04)' }}>
               
-              {/* Table Toolbar */}
-              <div style={{ padding: '24px 30px', borderBottom: '1px solid var(--border-silver)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#FAFAFA' }}>
-                <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--deep-navy)' }}>
-                  {activeTab === 'consultations' ? `All Consultations (${consultations.length})` : `All Requests (${resources.length})`}
+              <div style={{ padding: '24px 30px', borderBottom: '1px solid var(--border-silver)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#FAFAFA', flexWrap: 'wrap', gap: '16px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                  <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--deep-navy)' }}>
+                    {activeTab === 'consultations' ? `Consultations (${filteredConsultations.length})` : `Requests (${filteredResources.length})`}
+                  </div>
+                  
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'white', border: '1px solid var(--border-silver)', padding: '6px 12px', borderRadius: '8px' }}>
+                    <Search size={16} color="var(--text-light)" />
+                    <input 
+                      type="text" 
+                      placeholder="Search name/email..." 
+                      value={searchTerm}
+                      onChange={e => setSearchTerm(e.target.value)}
+                      style={{ border: 'none', outline: 'none', fontSize: '0.85rem', width: '150px' }}
+                    />
+                  </div>
+                  
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'white', border: '1px solid var(--border-silver)', padding: '6px 12px', borderRadius: '8px' }}>
+                    <Filter size={16} color="var(--text-light)" />
+                    <select 
+                      value={filterStatus}
+                      onChange={e => setFilterStatus(e.target.value)}
+                      style={{ border: 'none', outline: 'none', fontSize: '0.85rem', cursor: 'pointer', background: 'transparent' }}
+                    >
+                      <option value="All">All Status</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Completed">Completed</option>
+                    </select>
+                  </div>
                 </div>
-                <button onClick={fetchData} style={{ background: 'white', border: '1px solid var(--border-silver)', padding: '8px 16px', borderRadius: '8px', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-dark)', boxShadow: '0 2px 5px rgba(0,0,0,0.02)' }}>
-                  <Activity size={14} /> Refresh Data
-                </button>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <button onClick={() => exportToCSV(activeTab)} style={{ background: 'white', border: '1px solid var(--border-silver)', padding: '8px 16px', borderRadius: '8px', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-dark)' }}>
+                    <Download size={14} /> Export CSV
+                  </button>
+                  <button onClick={fetchData} style={{ background: 'var(--light-blue)', border: 'none', padding: '8px 16px', borderRadius: '8px', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--executive-blue)' }}>
+                    <Activity size={14} /> Refresh
+                  </button>
+                </div>
               </div>
 
               {loading ? (
@@ -418,7 +503,7 @@ export default function AdminDashboard() {
                     </thead>
                     <tbody>
                       {/* --- CONSULTATIONS TABLE --- */}
-                      {activeTab === 'consultations' && consultations.map((item) => (
+                      {activeTab === 'consultations' && filteredConsultations.map((item) => (
                         <tr key={item._id} style={{ borderBottom: '1px solid var(--soft-silver)', transition: 'background 0.2s' }} onMouseOver={e => e.currentTarget.style.background = '#F8FAFC'} onMouseOut={e => e.currentTarget.style.background = 'white'}>
                           <td style={{ padding: '24px 30px', verticalAlign: 'top' }}>
                             <div style={{ fontWeight: 600, color: 'var(--text-dark)', marginBottom: '4px' }}>{new Date(item.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
@@ -451,22 +536,29 @@ export default function AdminDashboard() {
                             </span>
                           </td>
                           <td style={{ padding: '24px 30px', textAlign: 'right', verticalAlign: 'top' }}>
-                            {item.status !== 'Contacted' && (
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '8px' }}>
+                              {item.status !== 'Contacted' && (
+                                <button 
+                                  onClick={() => updateStatus('consultations', item._id, 'Contacted')}
+                                  style={{ background: 'var(--executive-blue)', color: 'white', border: 'none', padding: '8px 14px', borderRadius: '8px', cursor: 'pointer', fontSize: '0.85rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                                >
+                                  <Check size={16} /> Mark Handled
+                                </button>
+                              )}
                               <button 
-                                onClick={() => updateStatus('consultations', item._id, 'Contacted')}
-                                style={{ background: 'var(--executive-blue)', color: 'white', border: 'none', padding: '10px 18px', borderRadius: '8px', cursor: 'pointer', fontSize: '0.85rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px', boxShadow: '0 4px 12px rgba(22, 75, 122, 0.2)', transition: 'transform 0.2s' }}
-                                onMouseOver={e => e.currentTarget.style.transform = 'translateY(-2px)'}
-                                onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}
+                                onClick={() => deleteRecord('consultations', item._id)}
+                                style={{ background: '#FEE2E2', color: '#DC2626', border: 'none', padding: '8px', borderRadius: '8px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+                                title="Delete Record"
                               >
-                                <Check size={16} /> Mark Handled
+                                <Trash2 size={16} />
                               </button>
-                            )}
+                            </div>
                           </td>
                         </tr>
                       ))}
 
                       {/* --- RESOURCES TABLE --- */}
-                      {activeTab === 'resources' && resources.map((item) => (
+                      {activeTab === 'resources' && filteredResources.map((item) => (
                         <tr key={item._id} style={{ borderBottom: '1px solid var(--soft-silver)', transition: 'background 0.2s' }} onMouseOver={e => e.currentTarget.style.background = '#F8FAFC'} onMouseOut={e => e.currentTarget.style.background = 'white'}>
                           <td style={{ padding: '24px 30px', verticalAlign: 'top' }}>
                             <div style={{ fontWeight: 600, color: 'var(--text-dark)', marginBottom: '4px' }}>{new Date(item.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
@@ -503,16 +595,23 @@ export default function AdminDashboard() {
                             </span>
                           </td>
                           <td style={{ padding: '24px 30px', textAlign: 'right', verticalAlign: 'top' }}>
-                            {item.status !== 'Sent' && (
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '8px' }}>
+                              {item.status !== 'Sent' && (
+                                <button 
+                                  onClick={() => updateStatus('resources', item._id, 'Sent')}
+                                  style={{ background: 'var(--executive-blue)', color: 'white', border: 'none', padding: '8px 14px', borderRadius: '8px', cursor: 'pointer', fontSize: '0.85rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                                >
+                                  <Check size={16} /> Mark Sent
+                                </button>
+                              )}
                               <button 
-                                onClick={() => updateStatus('resources', item._id, 'Sent')}
-                                style={{ background: 'var(--executive-blue)', color: 'white', border: 'none', padding: '10px 18px', borderRadius: '8px', cursor: 'pointer', fontSize: '0.85rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px', boxShadow: '0 4px 12px rgba(22, 75, 122, 0.2)', transition: 'transform 0.2s' }}
-                                onMouseOver={e => e.currentTarget.style.transform = 'translateY(-2px)'}
-                                onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}
+                                onClick={() => deleteRecord('resources', item._id)}
+                                style={{ background: '#FEE2E2', color: '#DC2626', border: 'none', padding: '8px', borderRadius: '8px', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+                                title="Delete Record"
                               >
-                                <Check size={16} /> Mark Sent
+                                <Trash2 size={16} />
                               </button>
-                            )}
+                            </div>
                           </td>
                         </tr>
                       ))}
@@ -520,18 +619,18 @@ export default function AdminDashboard() {
                   </table>
 
                   {/* Empty States */}
-                  {!loading && activeTab === 'consultations' && consultations.length === 0 && (
+                  {!loading && activeTab === 'consultations' && filteredConsultations.length === 0 && (
                      <div style={{ padding: '80px', textAlign: 'center', color: 'var(--text-light)' }}>
                        <Briefcase size={48} style={{ opacity: 0.2, margin: '0 auto 16px' }} />
-                       <div style={{ fontSize: '1.2rem', fontWeight: 600 }}>No consultations found</div>
-                       <p>When clients book a consultation, they will appear here.</p>
+                       <div style={{ fontSize: '1.2rem', fontWeight: 600 }}>No results found</div>
+                       <p>Try adjusting your search or filters.</p>
                      </div>
                   )}
-                  {!loading && activeTab === 'resources' && resources.length === 0 && (
+                  {!loading && activeTab === 'resources' && filteredResources.length === 0 && (
                      <div style={{ padding: '80px', textAlign: 'center', color: 'var(--text-light)' }}>
                        <FileText size={48} style={{ opacity: 0.2, margin: '0 auto 16px' }} />
-                       <div style={{ fontSize: '1.2rem', fontWeight: 600 }}>No library requests found</div>
-                       <p>When clients request a business document, it will appear here.</p>
+                       <div style={{ fontSize: '1.2rem', fontWeight: 600 }}>No results found</div>
+                       <p>Try adjusting your search or filters.</p>
                      </div>
                   )}
                 </div>
