@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Lock, ShieldCheck, FileText, Briefcase, CheckCircle, Clock, LogOut, Activity, Users, LayoutDashboard, Settings } from 'lucide-react';
+import { Lock, ShieldCheck, FileText, Briefcase, CheckCircle, Clock, LogOut, Activity, Users, LayoutDashboard, Settings, Check } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 export default function AdminDashboard() {
