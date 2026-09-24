@@ -21,6 +21,13 @@ export default function AdminDashboard() {
   useEffect(() => {
     if (token) {
       fetchData();
+      
+      // Auto-refresh data every 10 seconds silently
+      const interval = setInterval(() => {
+        fetchData(false);
+      }, 10000);
+      
+      return () => clearInterval(interval);
     }
   }, [token]);
 
@@ -50,8 +57,8 @@ export default function AdminDashboard() {
     setToken(null);
   };
 
-  const fetchData = async () => {
-    setLoading(true);
+  const fetchData = async (showLoading = true) => {
+    if (showLoading) setLoading(true);
     try {
       const [consRes, resRes] = await Promise.all([
         fetch(`${API_URL}/api/admin/consultations`, { headers: { 'Authorization': `Bearer ${token}` } }),
@@ -59,15 +66,17 @@ export default function AdminDashboard() {
       ]);
       
       if (consRes.ok && resRes.ok) {
-        setConsultations(await consRes.json());
-        setResources(await resRes.json());
+        const consData = await consRes.json();
+        const resData = await resRes.json();
+        setConsultations(consData.data || consData);
+        setResources(resData.data || resData);
       } else if (consRes.status === 401) {
         handleLogout();
       }
     } catch (error) {
       console.error('Failed to fetch admin data', error);
     }
-    setLoading(false);
+    if (showLoading) setLoading(false);
   };
 
   const updateStatus = async (type, id, newStatus) => {
