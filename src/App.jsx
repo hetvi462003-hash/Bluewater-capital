@@ -304,7 +304,7 @@ export default function App() {
               </div>
             </section>
 
-          } />
+          </>} />
 
         {/* PAGE 2: ABOUT */}
         <Route path="/about" element={
@@ -355,7 +355,7 @@ export default function App() {
             </section>
 
             <WhyChooseBlue onBookConsultation={() => handleOpenConsultation()} />
-          } />
+          </>} />
 
         {/* PAGE 3: SERVICES */}
         <Route path="/services" element={
@@ -369,7 +369,7 @@ export default function App() {
             <MarqueeTicker />
             <ServicesSection onBookConsultation={(service) => handleOpenConsultation(service)} />
             <CaymanCalculator onBookConsultation={(goalTitle) => handleOpenConsultation(goalTitle)} />
-          } />
+          </>} />
 
         {/* PAGE 4: BUSINESS LIBRARY */}
         <Route path="/library" element={
@@ -382,7 +382,7 @@ export default function App() {
             />
             <MarqueeTicker />
             <BusinessLibrary onRequestResource={handleRequestResource} />
-          } />
+          </>} />
 
         {/* PAGE 5: MEMBERSHIP */}
         <Route path="/membership" element={
@@ -395,7 +395,7 @@ export default function App() {
             />
             <MarqueeTicker />
             <MembershipSection onJoinMembership={handleJoinMembership} />
-          } />
+          </>} />
 
         {/* PAGE 6: RESOURCES */}
         <Route path="/resources" element={
@@ -408,7 +408,7 @@ export default function App() {
             />
             <MarqueeTicker />
             <ResourcesSection />
-          } />
+          </>} />
 
         {/* PAGE 7: ABOUT CAYMAN */}
         <Route path="/about-cayman" element={
@@ -422,7 +422,7 @@ export default function App() {
             <MarqueeTicker />
             <AboutCayman onBookConsultation={() => handleOpenConsultation()} />
             <CaymanCalculator onBookConsultation={(goalTitle) => handleOpenConsultation(goalTitle)} />
-          } />
+          </>} />
 
         {/* PAGE 8: WHY CHOOSE BLUE */}
         <Route path="/why-choose-blue" element={
@@ -435,7 +435,7 @@ export default function App() {
             />
             <MarqueeTicker />
             <WhyChooseBlue onBookConsultation={() => handleOpenConsultation()} />
-          } />
+          </>} />
 
         {/* PAGE 9: CONTACT */}
         <Route path="/contact" element={
@@ -448,7 +448,7 @@ export default function App() {
             />
             <MarqueeTicker />
             <ContactConsultation selectedService={consultationInitialService} />
-          } />
+          </>} />
         </Routes>
       </main>
 
