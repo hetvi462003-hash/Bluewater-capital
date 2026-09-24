@@ -17,7 +17,8 @@ export default function CaymanCalculator({ onBookConsultation }) {
         "Document Verification & Submission Prep",
         "Immigration Department Correspondence"
       ],
-      ctaText: "Book Immigration Consultation"
+      ctaText: "Book Immigration Consultation",
+      serviceValue: "Immigration & Residency"
     },
     business: {
       title: "Establishing a Cayman Business",
@@ -30,7 +31,8 @@ export default function CaymanCalculator({ onBookConsultation }) {
         "Cayman Corporate Governance Setup",
         "Blue Business Library Starter Templates"
       ],
-      ctaText: "Start Business Setup Consultation"
+      ctaText: "Start Business Setup Consultation",
+      serviceValue: "Corporate & Business Services"
     },
     aml: {
       title: "AML & Compliance Framework",
@@ -43,7 +45,8 @@ export default function CaymanCalculator({ onBookConsultation }) {
         "Compliance Manual & Procedures",
         "Staff Compliance & AML Education"
       ],
-      ctaText: "Book AML & Compliance Assessment"
+      ctaText: "Book AML & Compliance Assessment",
+      serviceValue: "AML & Compliance Services"
     },
     training: {
       title: "Caymanian History & Culture Training",
@@ -56,7 +59,8 @@ export default function CaymanCalculator({ onBookConsultation }) {
         "Culture, Milestones & Identity",
         "PR Exam Practice Assessment"
       ],
-      ctaText: "Register for Training"
+      ctaText: "Register for Training",
+      serviceValue: "Caymanian History & Culture Training"
     }
   };
 
@@ -214,7 +218,7 @@ export default function CaymanCalculator({ onBookConsultation }) {
               </div>
 
               <button 
-                onClick={() => onBookConsultation(currentGoal.title)}
+                onClick={() => onBookConsultation(currentGoal.serviceValue)}
                 className="btn-primary"
                 style={{
                   width: '100%',
