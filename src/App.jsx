@@ -21,8 +21,12 @@ import ScrollReveal from './components/ScrollReveal';
 import { ArrowRight, Sparkles, ShieldCheck, BookOpen, Award, Building, Phone, Calendar } from 'lucide-react';
 
 
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+
 export default function App() {
-  const [activeTab, setActiveTab] = useState('home');
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const activeTab = pathname === '/' ? 'home' : pathname.replace('/', '');
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
   const [consultationInitialService, setConsultationInitialService] = useState('');
   const [isResourceModalOpen, setIsResourceModalOpen] = useState(false);
@@ -39,7 +43,8 @@ export default function App() {
 
   const handleTabChange = (tab) => {
     window.scrollTo(0, 0);
-    setActiveTab(tab);
+    const path = tab === 'home' ? '/' : `/${tab}`;
+    navigate(path);
   };
 
   React.useEffect(() => {
@@ -175,10 +180,10 @@ export default function App() {
       />
 
       {/* Dynamic View Sections */}
-      <main key={activeTab} style={{ flex: 1 }}>
-        
+      <main style={{ flex: 1 }}>
+        <Routes>
         {/* PAGE 1: HOME */}
-        {activeTab === 'home' && (
+        <Route path="/" element={
           <>
             <Hero 
               onExploreServices={() => handleTabChange('services')}
@@ -299,11 +304,10 @@ export default function App() {
               </div>
             </section>
 
-          </>
-        )}
+          } />
 
         {/* PAGE 2: ABOUT */}
-        {activeTab === 'about' && (
+        <Route path="/about" element={
           <>
             <PageBanner 
               badge="About Blue Water Capital"
@@ -351,11 +355,10 @@ export default function App() {
             </section>
 
             <WhyChooseBlue onBookConsultation={() => handleOpenConsultation()} />
-          </>
-        )}
+          } />
 
         {/* PAGE 3: SERVICES */}
-        {activeTab === 'services' && (
+        <Route path="/services" element={
           <>
             <PageBanner 
               badge="Practice Areas"
@@ -366,11 +369,10 @@ export default function App() {
             <MarqueeTicker />
             <ServicesSection onBookConsultation={(service) => handleOpenConsultation(service)} />
             <CaymanCalculator onBookConsultation={(goalTitle) => handleOpenConsultation(goalTitle)} />
-          </>
-        )}
+          } />
 
         {/* PAGE 4: BUSINESS LIBRARY */}
-        {activeTab === 'library' && (
+        <Route path="/library" element={
           <>
             <PageBanner 
               badge="Blue Business Library"
@@ -380,11 +382,10 @@ export default function App() {
             />
             <MarqueeTicker />
             <BusinessLibrary onRequestResource={handleRequestResource} />
-          </>
-        )}
+          } />
 
         {/* PAGE 5: MEMBERSHIP */}
-        {activeTab === 'membership' && (
+        <Route path="/membership" element={
           <>
             <PageBanner 
               badge="Blue Membership Plans"
@@ -394,11 +395,10 @@ export default function App() {
             />
             <MarqueeTicker />
             <MembershipSection onJoinMembership={handleJoinMembership} />
-          </>
-        )}
+          } />
 
         {/* PAGE 6: RESOURCES */}
-        {activeTab === 'resources' && (
+        <Route path="/resources" element={
           <>
             <PageBanner 
               badge="Knowledge Centre & FAQs"
@@ -408,11 +408,10 @@ export default function App() {
             />
             <MarqueeTicker />
             <ResourcesSection />
-          </>
-        )}
+          } />
 
         {/* PAGE 7: ABOUT CAYMAN */}
-        {activeTab === 'about-cayman' && (
+        <Route path="/about-cayman" element={
           <>
             <PageBanner 
               badge="About Cayman"
@@ -423,11 +422,10 @@ export default function App() {
             <MarqueeTicker />
             <AboutCayman onBookConsultation={() => handleOpenConsultation()} />
             <CaymanCalculator onBookConsultation={(goalTitle) => handleOpenConsultation(goalTitle)} />
-          </>
-        )}
+          } />
 
         {/* PAGE 8: WHY CHOOSE BLUE */}
-        {activeTab === 'why-choose-blue' && (
+        <Route path="/why-choose-blue" element={
           <>
             <PageBanner 
               badge="Our Differentiators"
@@ -437,11 +435,10 @@ export default function App() {
             />
             <MarqueeTicker />
             <WhyChooseBlue onBookConsultation={() => handleOpenConsultation()} />
-          </>
-        )}
+          } />
 
         {/* PAGE 9: CONTACT */}
-        {activeTab === 'contact' && (
+        <Route path="/contact" element={
           <>
             <PageBanner 
               badge="Get In Touch"
@@ -451,8 +448,8 @@ export default function App() {
             />
             <MarqueeTicker />
             <ContactConsultation selectedService={consultationInitialService} />
-          </>
-        )}
+          } />
+        </Routes>
       </main>
 
       {/* Floating Action Quick Hub */}
