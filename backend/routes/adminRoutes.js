@@ -12,7 +12,7 @@ router.post('/login', (req, res) => {
   const adminUser = process.env.ADMIN_USERNAME || 'admin';
   const adminPass = process.env.ADMIN_PASSWORD || 'admin123';
 
-  if (username === adminUser && password === adminPass) {
+  if (username && username.toLowerCase() === adminUser.toLowerCase() && password === adminPass) {
     const payload = {
       user: {
         id: 'admin_user',
