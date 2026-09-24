@@ -1,14 +1,11 @@
 const nodemailer = require('nodemailer');
-const dns = require('dns');
-
-// Force IPv4 because Render's IPv6 routing blocks Gmail SMTP
-dns.setDefaultResultOrder('ipv4first');
 
 const createTransporter = () => {
   return nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
     secure: true,
+    family: 4, // Force Node to use IPv4 instead of IPv6 for the socket
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS
