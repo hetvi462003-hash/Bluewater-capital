@@ -190,18 +190,21 @@ h1, h2, h3, h4, h5, h6 {
 .gradient-text {
   background: linear-gradient(135deg, var(--deep-navy) 0%, var(--executive-blue) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-light {
   background: linear-gradient(135deg, #FFFFFF 0%, var(--light-blue) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-accent {
   background: linear-gradient(90deg, #FFFFFF 0%, #DCEAF5 60%, #90C2E7 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
