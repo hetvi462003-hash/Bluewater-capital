@@ -1,4 +1,6 @@
 :root {
+  color-scheme: light only;
+  
   /* Official Palette from Color palette.docx */
   --deep-navy: #0B1F3A;
   --executive-blue: #164B7A;
