@@ -74,6 +74,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 32px;
 }
 
+.hero-grid {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+}
+
 /* Spacious Section Layout Class */
 .section-padding {
   padding: 120px 0;
@@ -405,6 +409,9 @@ h1, h2, h3, h4, h5, h6 {
   }
   .container {
     padding: 0 24px;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -45,9 +45,8 @@ export default function Hero({ onExploreServices, onBookConsultation }) {
       </div>
 
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-        <div style={{
+        <div className="hero-grid" style={{
           display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1.1fr) minmax(0, 0.9fr)',
           gap: '54px',
           alignItems: 'center'
         }}>
