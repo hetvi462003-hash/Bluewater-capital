@@ -233,7 +233,7 @@ export default function Navbar({ activeTab, setActiveTab, onOpenConsultation }) 
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
           <button 
             onClick={onOpenConsultation}
-            className="btn-primary"
+            className="btn-primary nav-book-btn"
             style={{
               padding: '9px 16px',
               fontSize: '0.8rem',
@@ -296,6 +296,9 @@ export default function Navbar({ activeTab, setActiveTab, onOpenConsultation }) 
         @media (max-width: 1099px) {
           .desktop-nav { display: none !important; }
           .mobile-toggle-btn { display: flex !important; }
+        }
+        @media (max-width: 500px) {
+          .nav-book-btn { display: none !important; }
         }
       `}</style>
     </header>
