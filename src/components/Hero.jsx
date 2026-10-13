@@ -97,9 +97,10 @@ export default function Hero({ onExploreServices, onBookConsultation }) {
                 color: 'var(--text-muted)',
                 marginBottom: '16px',
                 maxWidth: '620px',
-                lineHeight: 1.75
+                lineHeight: 1.75,
+                textAlign: 'justify'
               }}>
-                At <strong style={{ color: 'var(--deep-navy)' }}>Blue Water Capital</strong>, we provide practical professional solutions for individuals, entrepreneurs and businesses navigating the Cayman Islands. We simplify the processes when establishing, operating and building your future in Cayman.
+                At <strong style={{ color: 'var(--deep-navy)' }}>Blue Water Capital</strong>, we provide practical professional solutions for individuals, entrepreneurs and businesses navigating the Cayman Islands. We simplify the processes when establishing, operating and building your future in the Cayman Islands.
               </p>
 
               <p style={{
@@ -107,9 +108,10 @@ export default function Hero({ onExploreServices, onBookConsultation }) {
                 color: 'var(--text-light)',
                 marginBottom: '28px',
                 maxWidth: '600px',
-                lineHeight: 1.7
+                lineHeight: 1.7,
+                textAlign: 'justify'
               }}>
-                From immigration and permanent residence support to AML compliance, business formation, licensing, corporate services, professional training, and essential business documentation.
+                From immigration support to AML compliance, business formation, licensing, corporate services, professional training, and essential business documentation, we make complex processes easier to manage.
               </p>
 
               <div style={{
@@ -196,15 +198,15 @@ export default function Hero({ onExploreServices, onBookConsultation }) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '0.925rem', color: 'var(--text-dark)' }}>
                   <CheckCircle2 size={18} color="#164B7A" />
-                  <span>Cayman-focused local regulatory expertise</span>
+                  <span>Cayman-focused regulatory expertise</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '0.925rem', color: 'var(--text-dark)' }}>
                   <CheckCircle2 size={18} color="#164B7A" />
-                  <span>End-to-end support for business & residency</span>
+                  <span>End-to end business</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '0.925rem', color: 'var(--text-dark)' }}>
                   <CheckCircle2 size={18} color="#164B7A" />
-                  <span>Full AML Officers & Compliance Frameworks</span>
+                  <span>Experienced AML Officers and Directors</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '0.925rem', color: 'var(--text-dark)' }}>
                   <CheckCircle2 size={18} color="#164B7A" />

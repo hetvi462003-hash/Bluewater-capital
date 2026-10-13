@@ -317,7 +317,7 @@ export default function BusinessLibrary({ onRequestResource, isHomePage = false,
               <div>
                 <h4 style={{ fontSize: '1.05rem', color: 'var(--deep-navy)', marginBottom: '8px' }}>Legal Disclaimer</h4>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
-                  Blu Consultancy templates are provided as general business resources and are intended to serve as a starting point for your organisation’s documentation. Templates should be reviewed and adapted to reflect your specific business circumstances, applicable Cayman Islands laws and regulatory requirements. Purchasing a template does not constitute legal, regulatory or professional advice.
+                  Blue Water Capital templates are provided as general business resources and are intended to serve as a starting point for your organisation’s documentation. Templates should be reviewed and adapted to reflect your specific business circumstances, applicable Cayman Islands laws and regulatory requirements. Purchasing a template does not constitute legal, regulatory or professional advice.
                 </p>
               </div>
             </div>

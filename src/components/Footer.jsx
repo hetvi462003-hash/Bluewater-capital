@@ -69,7 +69,7 @@ export default function Footer({ onNavigate }) {
                 fontWeight: 600
               }}>
                 <ShieldCheck size={14} color="var(--light-blue)" />
-                <span>Blu Consultancy • Grand Cayman</span>
+                <span>Blue Water Capital • Grand Cayman</span>
               </div>
             </div>
 
@@ -286,8 +286,26 @@ export default function Footer({ onNavigate }) {
           color: 'rgba(255, 255, 255, 0.6)'
         }}>
           <p style={{ maxWidth: '850px', lineHeight: 1.5 }}>
-            Legal Disclaimer: Blu Consultancy / Blue Water Capital templates and website resources are provided as general business resources. They do not constitute legal or formal regulatory advice.
+            Legal Disclaimer: Blue Water Capital templates and website resources are provided as general business resources. They do not constitute legal or formal regulatory advice.
           </p>
+
+          {/* Copyright and Intellectual Property Notice */}
+          <div style={{
+            maxWidth: '850px',
+            backgroundColor: 'rgba(255, 255, 255, 0.04)',
+            border: '1px solid rgba(220, 234, 245, 0.12)',
+            borderRadius: 'var(--radius-sm)',
+            padding: '16px 20px',
+            textAlign: 'justify',
+            lineHeight: 1.6
+          }}>
+            <div style={{ fontWeight: 700, color: 'var(--light-blue)', marginBottom: '6px', fontSize: '0.8rem', textAlign: 'left' }}>
+              Copyright and Intellectual Property Notice
+            </div>
+            <p style={{ margin: 0, color: 'rgba(255, 255, 255, 0.75)', fontSize: '0.775rem' }}>
+              All documents, templates, forms and other resources purchased or obtained from Blue Water Capital are the intellectual property of Blue Water Capital and are provided for the purchaser's internal use only. Reproduction, resale, redistribution, sharing or commercial use without prior written consent is strictly prohibited. All rights are reserved.
+            </p>
+          </div>
 
           <div style={{
             display: 'flex',
@@ -298,7 +316,7 @@ export default function Footer({ onNavigate }) {
             paddingTop: '14px'
           }}>
             <div>
-              © {new Date().getFullYear()} Blue Water Capital (Blu Consultancy). All rights reserved.
+              © 2022 Blue Water Capital. All rights reserved.
             </div>
           </div>
         </div>

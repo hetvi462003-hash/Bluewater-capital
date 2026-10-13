@@ -77,18 +77,20 @@ export default function AboutSection({ onBookConsultation }) {
                 fontSize: '1.05rem',
                 color: 'var(--text-muted)',
                 marginBottom: '16px',
-                lineHeight: 1.7
+                lineHeight: 1.7,
+                textAlign: 'justify'
               }}>
-                Navigating Cayman’s regulatory, immigration and business environment can be complex. <strong>Blue Water Capital (Blu Consultancy)</strong> was created to make that journey simpler. We provide professional consulting services to individuals, entrepreneurs, companies and organisations seeking to establish, operate, grow or remain compliant in the Cayman Islands.
+                Navigating Cayman’s regulatory, immigration and business environment can be complex. <strong>Blue Water Capital</strong> was created to make that journey simpler. We provide professional consulting services to individuals, entrepreneurs, companies and organisations seeking to establish, operate, grow or remain compliant in the Cayman Islands.
               </p>
 
               <p style={{
                 fontSize: '1rem',
                 color: 'var(--text-muted)',
                 marginBottom: '28px',
-                lineHeight: 1.7
+                lineHeight: 1.7,
+                textAlign: 'justify'
               }}>
-                Our approach is straightforward: understand your situation, identify the requirements, explain your options and help you move forward with confidence. Whether you are applying for Caymanian status, establishing a business, strengthening your AML framework or preparing for a regulatory requirement, Blu Consultancy provides practical support from start to finish.
+                Our approach is straightforward: understand your situation, identify the requirements, explain your options and help you move forward with confidence. Whether you are applying for Caymanian status, establishing a business, strengthening your AML framework or preparing for a regulatory requirement, Blue Water provides practical support from start to finish.
               </p>
 
               {/* Core Highlight Quote */}

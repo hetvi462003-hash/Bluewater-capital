@@ -35,7 +35,7 @@ export default function CaymanCalculator({ onBookConsultation }) {
       serviceValue: "Corporate & Business Services"
     },
     aml: {
-      title: "AML & Compliance Framework",
+      title: "AML & Compliance",
       badge: "Regulatory Readiness Pathway",
       timeline: "1 – 3 Weeks Remediation",
       recommendation: "AML Officer Designation, Risk Assessment & Compliance Policy Drafting",
@@ -102,7 +102,7 @@ export default function CaymanCalculator({ onBookConsultation }) {
             {[
               { id: 'pr', label: 'Permanent Residence & Status', icon: ShieldCheck },
               { id: 'business', label: 'Setup a Cayman Business', icon: Building2 },
-              { id: 'aml', label: 'AML & Compliance Framework', icon: UserCheck },
+              { id: 'aml', label: 'AML & Compliance', icon: UserCheck },
               { id: 'training', label: 'History & Culture Training', icon: Sparkles }
             ].map((item) => {
               const Icon = item.icon;

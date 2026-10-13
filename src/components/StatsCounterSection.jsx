@@ -39,29 +39,29 @@ export default function StatsCounterSection() {
     {
       numeric: 100,
       suffix: "%",
-      label: "Confidentiality & Compliance",
-      subText: "Strictly aligned with CIMA & Cayman laws",
+      label: "Confidential and Regulatory Integrity",
+      subText: "committed to protecting client information and maintaining alignment with applicable Cayman Islands Acts and Regulations, and CIMA requirements.",
       icon: ShieldCheck
     },
     {
       numeric: 25,
       suffix: "+",
       label: "Business Library Templates",
-      subText: "Instant HR, AML, & Corporate Documents",
+      subText: "Access ready-to-use templates and business documents covering HR, Compliance and Corporate Governance designed to streamline workflows and support efficient business management.",
       icon: FileCheck
     },
     {
       isText: true,
       displayVal: "5-Star",
-      label: "Client Satisfaction",
-      subText: "Practical guidance from start to finish",
+      label: "Client-Focused Excellence",
+      subText: "dedicated support and practical guidance at every stage of your business journey.",
       icon: Star
     },
     {
       isText: true,
       displayVal: "George Town",
-      label: "Grand Cayman Headquarters",
-      subText: "80 Shedden Road, Elizabethan Square",
+      label: "Experience You can trust",
+      subText: "Experienced professionals delivering knowledgeable guidance and tailored business solutions.",
       icon: MapPin
     }
   ];

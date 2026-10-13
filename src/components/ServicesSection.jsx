@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, BookOpen, Building, Award, GraduationCap, ArrowRight, CheckCircle2, FileText, Check } from 'lucide-react';
+import { Shield, BookOpen, Building, Award, GraduationCap, ArrowRight, CheckCircle2, FileText, Check, FileBadge } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 export default function ServicesSection({ onBookConsultation }) {
@@ -24,7 +24,7 @@ export default function ServicesSection({ onBookConsultation }) {
               Solutions Designed <span style={{ color: 'var(--executive-blue)' }}>Around Your Needs</span>
             </h2>
             <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)' }}>
-              Comprehensive advisory, compliance, corporate, and training services tailored for individuals and organisations in the Cayman Islands.
+              Comprehensive advisory, compliance, corporate, and training services tailored for entrepreneurs and organisations in the Cayman Islands.
             </p>
           </div>
         </ScrollReveal>
@@ -39,7 +39,7 @@ export default function ServicesSection({ onBookConsultation }) {
             marginBottom: '40px'
           }}>
             {[
-              { id: 'immigration', label: 'Immigration & Residency', icon: Shield },
+              { id: 'immigration', label: 'Immigration', icon: Shield },
               { id: 'history-culture', label: 'Caymanian History & Culture', icon: GraduationCap },
               { id: 'aml-compliance', label: 'AML & Compliance', icon: Award },
               { id: 'corporate-business', label: 'Corporate & Business', icon: Building },
@@ -99,8 +99,8 @@ export default function ServicesSection({ onBookConsultation }) {
                     </button>
                   </div>
 
-                  <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '32px', lineHeight: 1.7 }}>
-                    Immigration applications can be time-consuming, detailed and difficult to navigate without the right guidance. Blue Water Capital provides professional immigration support designed to help individuals, families and employers understand requirements, prepare documentation and navigate the application process with greater confidence.
+                  <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '32px', lineHeight: 1.7, textAlign: 'justify' }}>
+                    Immigration applications can be time-consuming, detailed and difficult to navigate without the right guidance. Blue Water Capital provides professional immigration support designed to help entrepreneurs, families and employers understand requirements, prepare documentation and navigate the application process with greater confidence.
                   </p>
 
                   <h4 style={{ fontSize: '1.2rem', marginBottom: '20px', color: 'var(--deep-navy)' }}>Our Services Include:</h4>
@@ -113,7 +113,7 @@ export default function ServicesSection({ onBookConsultation }) {
                 }}>
                   {[
                     { icon: Shield, title: "Work Permit & Other Applications", desc: "Support with applications and renewals relating to employment in the Cayman Islands." },
-                    { icon: GraduationCap, title: "Residency, Status & Citizenship", desc: "Assistance with permanent residency, right to be Caymanian, naturalization, Caymanian Acknowledgement and other immigration applications." },
+                    { icon: FileBadge, title: "Residency, Status & Citizenship", desc: "Assistance with permanent residency, right to be Caymanian, naturalization, Caymanian Acknowledgement and other applications." },
                     { icon: FileText, title: "Visa & Travel Services", desc: "Assistance with local and international visa applications, UK ESTA applications, passport applications and other related travel documentation." },
                     { icon: Award, title: "Immigration Advisory & Support", desc: "Professional guidance for individuals and businesses navigating Cayman Islands immigration requirements and processes." }
                   ].map((card, idx) => {
@@ -157,7 +157,7 @@ export default function ServicesSection({ onBookConsultation }) {
                     </button>
                   </div>
 
-                  <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '24px', lineHeight: 1.7 }}>
+                  <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '24px', lineHeight: 1.7, textAlign: 'justify' }}>
                     For individuals pursuing Permanent Residence in the Cayman Islands, understanding Caymanian history, culture and heritage can be an important part of the preparation process. Blue Water Capital offers structured Caymanian History & Culture training designed to help participants develop a stronger understanding of the Cayman Islands and prepare for the relevant assessment requirements.
                   </p>
 
@@ -176,8 +176,7 @@ export default function ServicesSection({ onBookConsultation }) {
                     "Caymanian culture and traditions",
                     "Important national events and milestones",
                     "People and places that shaped the Cayman Islands",
-                    "Caymanian identity and community",
-                    "Key areas participants should understand when preparing for the assessment"
+                    "Caymanian identity and community"
                   ].map((item, idx) => (
                     <ScrollReveal key={idx} direction="up" delay={idx * 60}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px', backgroundColor: 'var(--light-blue)', borderRadius: 'var(--radius-sm)' }}>
@@ -202,7 +201,7 @@ export default function ServicesSection({ onBookConsultation }) {
                   }}>
                     <div>
                       <div style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--light-blue)', marginBottom: '6px' }}>More Than Preparation.</div>
-                      <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)', maxWidth: '650px' }}>
+                      <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)', maxWidth: '650px', textAlign: 'justify' }}>
                         Our goal isn’t simply to help you prepare for an assessment. It is to help you better understand the country you live in, work in and hope to make your permanent home.
                       </p>
                       <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--white)', marginTop: '12px' }}>
@@ -231,7 +230,7 @@ export default function ServicesSection({ onBookConsultation }) {
                     </button>
                   </div>
 
-                  <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '28px', lineHeight: 1.7 }}>
+                  <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '28px', lineHeight: 1.7, textAlign: 'justify' }}>
                     Effective compliance is more than meeting a regulatory requirement. It is about protecting your organisation, your clients and your reputation. Blue Water Capital provides practical AML and compliance solutions for businesses seeking to establish, strengthen or remediate their compliance frameworks.
                   </p>
 
@@ -306,7 +305,7 @@ export default function ServicesSection({ onBookConsultation }) {
                     </button>
                   </div>
 
-                  <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '28px', lineHeight: 1.7 }}>
+                  <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '28px', lineHeight: 1.7, textAlign: 'justify' }}>
                     Setting up a business in the Cayman Islands involves more than registering a company. There are licensing, regulatory and operational considerations that need to be addressed from the beginning. Blue Water Capital helps entrepreneurs and businesses navigate the administrative and regulatory requirements involved in establishing and operating a business in Cayman.
                   </p>
                 </ScrollReveal>
@@ -320,7 +319,7 @@ export default function ServicesSection({ onBookConsultation }) {
                   {[
                     { title: "Company Incorporation", desc: "Complete support for establishing new Cayman entities." },
                     { title: "Trade & Business Licensing", desc: "Guidance and submission support for local T&B licenses." },
-                    { title: "Business Registration Support", desc: "Fulfilling all regulatory registry & tax requirements." },
+                    { title: "Business Registration Support", desc: "Business registration and regulatory compliance support." },
                     { title: "Corporate Administration", desc: "Ongoing secretarial and corporate record management." },
                     { title: "Regulatory Application Support", desc: "Preparing applications for regulatory approvals." },
                     { title: "Business Documentation", desc: "Custom operational policies, agreements and contracts." }
@@ -335,7 +334,7 @@ export default function ServicesSection({ onBookConsultation }) {
                       }}>
                         <Building size={20} color="var(--executive-blue)" style={{ marginBottom: '8px' }} />
                         <h5 style={{ fontSize: '1.05rem', color: 'var(--deep-navy)', marginBottom: '6px' }}>{item.title}</h5>
-                        <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>{item.desc}</p>
+                        <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', textAlign: 'justify' }}>{item.desc}</p>
                       </div>
                     </ScrollReveal>
                   ))}
@@ -365,7 +364,7 @@ export default function ServicesSection({ onBookConsultation }) {
                     </button>
                   </div>
 
-                  <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '28px', lineHeight: 1.7 }}>
+                  <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '28px', lineHeight: 1.7, textAlign: 'justify' }}>
                     Regulatory requirements are constantly evolving. The right training helps organisations keep their teams informed, prepared and compliant. Through our professional training offerings, we provide practical education across key commercial and regulatory disciplines.
                   </p>
 
@@ -450,7 +449,8 @@ const cardTitleStyle = {
 const cardTextStyle = {
   fontSize: '0.9rem',
   color: 'var(--text-muted)',
-  lineHeight: 1.5
+  lineHeight: 1.5,
+  textAlign: 'justify'
 };
 
 const calloutBoxStyle = {

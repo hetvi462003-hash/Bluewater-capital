@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, Landmark, TrendingUp, Sun, Heart, Compass, CheckCircle } from 'lucide-react';
+import { Globe, Landmark, TrendingUp, Sun, Building2, Compass, CheckCircle } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 export default function AboutCayman({ onBookConsultation }) {
@@ -27,7 +27,7 @@ export default function AboutCayman({ onBookConsultation }) {
     {
       title: "A Place to Build",
       desc: "Whether establishing a venture, pursuing a career or making Cayman your permanent home, the Islands offer unparalleled opportunities.",
-      icon: Heart
+      icon: Building2
     }
   ];
 
@@ -71,11 +71,11 @@ export default function AboutCayman({ onBookConsultation }) {
                 <h3 style={{ fontSize: '1.85rem', color: 'var(--deep-navy)', marginBottom: '20px' }}>
                   Welcome to the Cayman Islands
                 </h3>
-                <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '18px', lineHeight: 1.8 }}>
+                <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '18px', lineHeight: 1.8, textAlign: 'justify' }}>
                   The Cayman Islands is a globally recognized financial centre and a thriving international business destination, known for its strong regulatory framework, political and economic stability, and exceptional quality of life.
                 </p>
-                <p style={{ fontSize: '1rem', color: 'var(--text-muted)', marginBottom: '28px', lineHeight: 1.7 }}>
-                  As a Cayman-based consultancy, <strong>Blu Consultancy</strong> understands that navigating Cayman is about more than completing forms or meeting deadlines. It requires local knowledge, an understanding of the regulatory environment, and a practical approach to getting things done.
+                <p style={{ fontSize: '1rem', color: 'var(--text-muted)', marginBottom: '28px', lineHeight: 1.7, textAlign: 'justify' }}>
+                  As a Cayman-based consultancy, <strong>Blue Water</strong> understands that navigating Cayman is about more than completing forms or meeting deadlines. It requires local knowledge, an understanding of the regulatory environment, and a practical approach to getting things done.
                 </p>
 
                 <div style={{
@@ -139,7 +139,7 @@ export default function AboutCayman({ onBookConsultation }) {
                     }}>
                       <Icon size={26} color="var(--executive-blue)" style={{ marginBottom: '14px' }} />
                       <h4 style={{ fontSize: '1.15rem', color: 'var(--deep-navy)', marginBottom: '10px' }}>{p.title}</h4>
-                      <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{p.desc}</p>
+                      <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, textAlign: 'justify' }}>{p.desc}</p>
                     </div>
                   </ScrollReveal>
                 );
@@ -157,7 +157,7 @@ export default function AboutCayman({ onBookConsultation }) {
               borderRadius: 'var(--radius-md)'
             }}>
               <h4 style={{ fontSize: '1.5rem', color: 'var(--white)', marginBottom: '12px' }}>
-                Considering Cayman? Let Blu Help You Navigate the Way Forward.
+                Considering Cayman? Let Blue Water Help You Navigate the Way Forward.
               </h4>
               <p style={{ fontSize: '1rem', color: 'var(--light-blue)', maxWidth: '720px', margin: '0 auto 24px', lineHeight: 1.6 }}>
                 From immigration and corporate services to compliance and business support, our team provides practical, professional solutions designed around your needs.
