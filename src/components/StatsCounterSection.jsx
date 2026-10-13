@@ -40,7 +40,7 @@ export default function StatsCounterSection() {
       numeric: 100,
       suffix: "%",
       label: "Confidential and Regulatory Integrity",
-      subText: "committed to protecting client information and maintaining alignment with applicable Cayman Islands Acts and Regulations, and CIMA requirements.",
+      subText: "Committed to protecting client information and maintaining alignment with applicable Cayman Islands Acts and Regulations, and CIMA requirements.",
       icon: ShieldCheck
     },
     {
@@ -54,7 +54,7 @@ export default function StatsCounterSection() {
       isText: true,
       displayVal: "5-Star",
       label: "Client-Focused Excellence",
-      subText: "dedicated support and practical guidance at every stage of your business journey.",
+      subText: "Dedicated support and practical guidance at every stage of your business journey.",
       icon: Star
     },
     {
