@@ -305,3 +305,4 @@ const inputStyle = {
   outline: 'none',
   backgroundColor: 'var(--white)'
 };
+
