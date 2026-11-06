@@ -9,7 +9,7 @@ export default function CaymanCalculator({ onBookConsultation }) {
     pr: {
       title: "Permanent Residence & Caymanian Status",
       badge: "Immigration & Residency Pathway",
-      timeline: "3 – 6 Months Processing",
+      timeline: null,
       recommendation: "Full Permanent Residence Support & Caymanian History & Culture PR Exam Training",
       checklist: [
         "Points Assessment & Strategy Review",
@@ -23,7 +23,7 @@ export default function CaymanCalculator({ onBookConsultation }) {
     business: {
       title: "Establishing a Cayman Business",
       badge: "Corporate & Licensing Pathway",
-      timeline: "2 – 4 Weeks Setup",
+      timeline: null,
       recommendation: "Company Incorporation, Trade & Business Licence Application & Office Registration",
       checklist: [
         "Company Structure Selection",
@@ -37,9 +37,10 @@ export default function CaymanCalculator({ onBookConsultation }) {
     aml: {
       title: "AML & Compliance",
       badge: "Regulatory Readiness Pathway",
-      timeline: "1 – 3 Weeks Remediation",
+      timeline: null,
       recommendation: "AML Officer Designation, Risk Assessment & Compliance Policy Drafting",
       checklist: [
+        "AML Remediation",
         "AML/CFT Risk Assessment Matrix",
         "Customer Due Diligence (CDD) Review",
         "Compliance Manual & Procedures",
@@ -51,7 +52,7 @@ export default function CaymanCalculator({ onBookConsultation }) {
     training: {
       title: "Caymanian History & Culture Training",
       badge: "PR Assessment Education",
-      timeline: "Flexible Course Modules",
+      timeline: null,
       recommendation: "Structured History, Civics, Identity, and Culture Exam Preparation Course",
       checklist: [
         "Caymanian Heritage & History Modules",
@@ -86,7 +87,7 @@ export default function CaymanCalculator({ onBookConsultation }) {
               Find Your Path in the <span style={{ color: 'var(--executive-blue)' }}>Cayman Islands</span>
             </h2>
             <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)' }}>
-              Select your goal below to view tailored advisory recommendations, estimated timelines, and required document checklists.
+              Select your goal below to view tailored advisory recommendations and required document checklists.
             </p>
           </div>
         </ScrollReveal>
@@ -166,14 +167,9 @@ export default function CaymanCalculator({ onBookConsultation }) {
                 {currentGoal.badge}
               </div>
 
-              <h3 style={{ fontSize: '1.8rem', color: 'var(--deep-navy)', marginBottom: '12px' }}>
+              <h3 style={{ fontSize: '1.8rem', color: 'var(--deep-navy)', marginBottom: '24px' }}>
                 {currentGoal.title}
               </h3>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--executive-blue)', fontSize: '0.95rem', fontWeight: 600, marginBottom: '24px' }}>
-                <Clock size={18} />
-                <span>Estimated Duration: {currentGoal.timeline}</span>
-              </div>
 
               <div style={{
                 backgroundColor: 'var(--light-blue)',

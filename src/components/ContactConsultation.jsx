@@ -59,7 +59,7 @@ export default function ContactConsultation({ selectedService = '', onSuccessSub
               Let’s Talk. <span style={{ color: 'var(--light-blue)' }}>Tell Us What You Need Help With.</span>
             </h2>
             <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.85)' }}>
-              Professional Guidance Starts With a Conversation. Whether starting a business, reviewing compliance, or navigating immigration, we are here to guide you.
+              Professional guidance starts with a conversation. Whether starting a business, reviewing compliance, or navigating immigration, we are here to guide you.
             </p>
           </div>
         </ScrollReveal>

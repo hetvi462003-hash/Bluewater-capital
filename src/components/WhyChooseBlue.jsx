@@ -80,7 +80,10 @@ export default function WhyChooseBlue({ onBookConsultation }) {
                     borderRadius: 'var(--radius-md)',
                     padding: '32px',
                     border: '1px solid var(--border-light)',
-                    boxShadow: 'var(--shadow-sm)'
+                    boxShadow: 'var(--shadow-sm)',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column'
                   }}
                 >
                   <div style={{
@@ -98,7 +101,7 @@ export default function WhyChooseBlue({ onBookConsultation }) {
                   <h3 style={{ fontSize: '1.25rem', color: 'var(--deep-navy)', marginBottom: '10px' }}>
                     {d.title}
                   </h3>
-                  <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
+                  <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: 1.6, textAlign: 'justify', flexGrow: 1 }}>
                     {d.desc}
                   </p>
                 </div>
@@ -132,7 +135,7 @@ export default function WhyChooseBlue({ onBookConsultation }) {
                 <h3 style={{ fontSize: '1.8rem', color: 'var(--white)', marginBottom: '12px' }}>
                   Your Goals. Our Expertise. A Clearer Path Forward.
                 </h3>
-                <p style={{ fontSize: '1.2rem', color: 'var(--light-blue)', marginBottom: '24px' }}>
+                <p style={{ fontSize: '1.15rem', color: 'var(--light-blue)', marginBottom: '24px', textAlign: 'justify', lineHeight: 1.6 }}>
                   Tell us what you’re trying to accomplish. We’ll help you identify the requirements, understand the process and determine the best way forward.
                 </p>
                 <button onClick={() => { window.scrollTo(0,0); navigate('/services'); }} className="btn-primary">

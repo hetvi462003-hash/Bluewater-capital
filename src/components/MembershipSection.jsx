@@ -12,10 +12,10 @@ export default function MembershipSection({ onJoinMembership }) {
       icon: Shield,
       featured: false,
       features: [
-        'Access to 5 templates per month',
+        'Access to 3 templates per month',
         'Standard Business Library access',
         'Email document support',
-        '10% discount on advisory add-ons'
+        '5% discount on advisory add-ons'
       ]
     },
     {
@@ -26,10 +26,10 @@ export default function MembershipSection({ onJoinMembership }) {
       icon: Star,
       featured: true,
       features: [
-        'Unlimited template library downloads',
-        'Full HR & Compliance template suite',
-        'Monthly compliance updates & checklists',
-        '20% discount on custom document drafting',
+        '5 templates per month',
+        'Full HR template suite',
+        'Monthly updates',
+        '10% discount on custom document drafting',
         'Priority email & phone support'
       ]
     },
@@ -43,8 +43,7 @@ export default function MembershipSection({ onJoinMembership }) {
       features: [
         'Complete Business Library unlimited access',
         'Tailored policy customization support',
-        'Dedicated compliance advisory desk',
-        'Quarterly AML & regulatory review calls',
+        'Dedicated advisory desk',
         'Free attendance to selected training webinars'
       ]
     }
@@ -161,7 +160,7 @@ export default function MembershipSection({ onJoinMembership }) {
                   </div>
 
                   <button 
-                    onClick={() => onJoinMembership(tier.name)}
+                    onClick={() => onJoinMembership(tier)}
                     className={tier.featured ? "btn-primary" : "btn-secondary"}
                     style={{ width: '100%', justifyContent: 'center', padding: '14px' }}
                   >

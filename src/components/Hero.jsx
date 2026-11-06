@@ -104,11 +104,11 @@ export default function Hero({ onExploreServices, onBookConsultation }) {
               </p>
 
               <p style={{
-                fontSize: '0.95rem',
-                color: 'var(--text-light)',
+                fontSize: '1.05rem',
+                color: 'var(--text-muted)',
                 marginBottom: '28px',
-                maxWidth: '600px',
-                lineHeight: 1.7,
+                maxWidth: '620px',
+                lineHeight: 1.75,
                 textAlign: 'justify'
               }}>
                 From immigration support to AML compliance, business formation, licensing, corporate services, professional training, and essential business documentation, we make complex processes easier to manage.

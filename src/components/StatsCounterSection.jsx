@@ -59,8 +59,8 @@ export default function StatsCounterSection() {
     },
     {
       isText: true,
-      displayVal: "George Town",
-      label: "Experience You can trust",
+      displayVal: "Experience You can Trust",
+      label: "Tailored Business Solutions",
       subText: "Experienced professionals delivering knowledgeable guidance and tailored business solutions.",
       icon: MapPin
     }
@@ -115,12 +115,13 @@ export default function StatsCounterSection() {
               >
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
                   <div style={{
-                    fontSize: '2.5rem',
+                    fontSize: item.isText && item.displayVal.length > 7 ? '1.45rem' : '2.5rem',
                     fontWeight: 800,
                     fontFamily: "'Outfit', sans-serif",
                     background: 'linear-gradient(90deg, #FFFFFF 0%, #DCEAF5 100%)',
                     WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent'
+                    WebkitTextFillColor: 'transparent',
+                    lineHeight: 1.2
                   }}>
                     {item.isText ? (
                       item.displayVal
@@ -145,7 +146,7 @@ export default function StatsCounterSection() {
                 <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--white)' }}>
                   {item.label}
                 </div>
-                <div style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.5 }}>
+                <div style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.5, textAlign: 'justify' }}>
                   {item.subText}
                 </div>
               </div>

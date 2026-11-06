@@ -15,6 +15,7 @@ import ContactConsultation from './components/ContactConsultation';
 import Footer from './components/Footer';
 import ConsultationModal from './components/ConsultationModal';
 import ResourceModal from './components/ResourceModal';
+import MembershipPaymentModal from './components/MembershipPaymentModal';
 import CaymanCalculator from './components/CaymanCalculator';
 import FloatingActionHub from './components/FloatingActionHub';
 import ScrollReveal from './components/ScrollReveal';
@@ -32,6 +33,8 @@ export default function App() {
   const [consultationInitialService, setConsultationInitialService] = useState('');
   const [isResourceModalOpen, setIsResourceModalOpen] = useState(false);
   const [selectedResource, setSelectedResource] = useState(null);
+  const [isMembershipModalOpen, setIsMembershipModalOpen] = useState(false);
+  const [selectedMembershipPlan, setSelectedMembershipPlan] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [toastMessage, setToastMessage] = useState(null);
 
@@ -79,7 +82,9 @@ export default function App() {
   };
 
   const handleJoinMembership = (planName) => {
-    handleOpenConsultation(`Blue Membership - ${planName} Plan`);
+    setSelectedMembershipPlan(planName);
+    setIsMembershipModalOpen(true);
+    showToast(`Opening payment & transfer details for ${typeof planName === 'string' ? planName : planName.name} Plan...`);
   };
 
 
@@ -378,7 +383,7 @@ export default function App() {
             <PageBanner 
               badge="Blue Business Library"
               title="Professional Documents Without Starting from a Blank Page"
-              subtitle="Browse ready-to-use business templates, HR agreements, AML compliance manuals, and Cayman business checklists."
+              subtitle="Browse ready-to-use business templates, immigration cover letters, HR agreements, AML compliance manuals, and corporate governance documents."
               bgImage="/images/downstairs - website photo.jpg"
             />
             <MarqueeTicker />
@@ -444,7 +449,7 @@ export default function App() {
             <PageBanner 
               badge="Get In Touch"
               title="Let’s Talk. Tell Us What You Need Help With."
-              subtitle="Visit our Elizabethan Square office in George Town or schedule a direct consultation with our advisory team."
+              subtitle="Visit our office or schedule a direct consultation with our team."
               bgImage="/images/office picture -  website photo.jpg"
             />
             <MarqueeTicker />
@@ -473,6 +478,12 @@ export default function App() {
         isOpen={isResourceModalOpen} 
         onClose={() => setIsResourceModalOpen(false)} 
         resource={selectedResource}
+      />
+
+      <MembershipPaymentModal 
+        isOpen={isMembershipModalOpen}
+        onClose={() => setIsMembershipModalOpen(false)}
+        plan={selectedMembershipPlan}
       />
 
       {/* Glassmorphic Action Toast Notification */}

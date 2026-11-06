@@ -191,20 +191,16 @@ export default function ServicesSection({ onBookConsultation }) {
                   <div style={{
                     backgroundColor: 'var(--deep-navy)',
                     color: 'var(--white)',
-                    padding: '28px',
+                    padding: '32px',
                     borderRadius: 'var(--radius-md)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    flexWrap: 'wrap',
-                    gap: '20px'
+                    width: '100%'
                   }}>
-                    <div>
-                      <div style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--light-blue)', marginBottom: '6px' }}>More Than Preparation.</div>
-                      <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)', maxWidth: '650px', textAlign: 'justify' }}>
+                    <div style={{ width: '100%' }}>
+                      <div style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--light-blue)', marginBottom: '8px' }}>More Than Preparation.</div>
+                      <p style={{ fontSize: '0.975rem', color: 'rgba(255,255,255,0.88)', width: '100%', textAlign: 'justify', lineHeight: 1.7, marginBottom: '14px' }}>
                         Our goal isn’t simply to help you prepare for an assessment. It is to help you better understand the country you live in, work in and hope to make your permanent home.
                       </p>
-                      <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--white)', marginTop: '12px' }}>
+                      <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--white)' }}>
                         Learn Cayman. Understand Cayman. Be Part of Cayman.
                       </div>
                     </div>
@@ -341,10 +337,13 @@ export default function ServicesSection({ onBookConsultation }) {
                 </div>
 
                 <ScrollReveal direction="up" delay={200}>
-                  <div style={calloutBoxStyle}>
-                    <div style={{ fontWeight: 700, color: 'var(--deep-navy)', fontSize: '1.1rem' }}>
+                  <div style={{ ...calloutBoxStyle, width: '100%', padding: '24px 28px' }}>
+                    <div style={{ fontWeight: 700, color: 'var(--deep-navy)', fontSize: '1.15rem', marginBottom: '8px' }}>
                       Build Properly. Operate Confidently. Grow Strategically.
                     </div>
+                    <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', textAlign: 'justify', lineHeight: 1.7, margin: 0, width: '100%' }}>
+                      Whether you’re launching a new venture or ensuring an existing business remains properly structured and compliant, Blue Water Capital can help you navigate the process.
+                    </p>
                   </div>
                 </ScrollReveal>
               </div>

@@ -4,54 +4,48 @@ import ScrollReveal from './ScrollReveal';
 
 export const TEMPLATES_DATA = [
   // Business Essentials
-  { id: 'b1', title: 'Business Plan Template', category: 'Business Essentials', price: '$49', desc: 'Comprehensive outline for business structure, financial projections, and market strategy.', popular: true },
-  { id: 'b2', title: 'Invoice Template', category: 'Business Essentials', price: '$29', desc: 'Professional billing layout compliant with local business invoicing standards.' },
-  { id: 'b3', title: 'Business Proposal', category: 'Business Essentials', price: '$39', desc: 'Turnkey client presentation and engagement proposal format.' },
-  { id: 'b4', title: 'Company Profile', category: 'Business Essentials', price: '$35', desc: 'Executive background overview for prospective investors and partners.' },
-  { id: 'b5', title: 'Meeting Agenda', category: 'Business Essentials', price: '$19', desc: 'Structured agenda framework for productive management meetings.' },
-  { id: 'b6', title: 'Minutes Template', category: 'Business Essentials', price: '$19', desc: 'Standardized format for capturing key meeting decisions and action items.' },
+  { id: 'b0', title: 'Immigration Cover Letters', category: 'Business Essentials', price: '$50', desc: 'Professionally drafted cover letter templates for Cayman Islands immigration and permit applications.', popular: true },
+  { id: 'b1', title: 'Business Plan Template', category: 'Business Essentials', price: '$150', desc: 'Comprehensive outline for business structure, financial projections, and market strategy.', popular: true },
+  { id: 'b2', title: 'Invoice Template', category: 'Business Essentials', price: '$25', desc: 'Professional billing layout compliant with local business invoicing standards.' },
+  { id: 'b3', title: 'Business Proposal', category: 'Business Essentials', price: '$75', desc: 'Turnkey client presentation and engagement proposal format.' },
+  { id: 'b5', title: 'Meeting Agenda', category: 'Business Essentials', price: '$25', desc: 'Structured agenda framework for productive management meetings.' },
+  { id: 'b6', title: 'Minutes Template', category: 'Business Essentials', price: '$25', desc: 'Standardized format for capturing key meeting decisions and action items.' },
 
   // HR & People
-  { id: 'h1', title: 'Employment Contract', category: 'HR & People', price: '$59', desc: 'Standard Cayman-compliant employment agreement template.', popular: true },
-  { id: 'h2', title: 'Employee Handbook', category: 'HR & People', price: '$89', desc: 'Complete workplace policies, code of conduct, and employee guidelines.' },
-  { id: 'h3', title: 'Performance Review', category: 'HR & People', price: '$29', desc: 'Structured employee appraisal and feedback document.' },
-  { id: 'h4', title: 'Disciplinary Form', category: 'HR & People', price: '$19', desc: 'Formal record keeping template for HR performance management.' },
-  { id: 'h5', title: 'Leave Request Form', category: 'HR & People', price: '$15', desc: 'Standardized employee vacation, sick leave, and personal time tracking.' },
+  { id: 'h1', title: 'Employment Contract', category: 'HR & People', price: '$75', desc: 'Standard Cayman-compliant employment agreement template.', popular: true },
+  { id: 'h2', title: 'Employee Handbook', category: 'HR & People', price: '$200', desc: 'Complete workplace policies, code of conduct, and employee guidelines.' },
+  { id: 'h3', title: 'Performance Review', category: 'HR & People', price: '$50', desc: 'Structured employee appraisal and feedback document.' },
+  { id: 'h4', title: 'Disciplinary Form', category: 'HR & People', price: '$25', desc: 'Formal record keeping template for HR performance management.' },
+  { id: 'h5', title: 'Leave Request Form', category: 'HR & People', price: '$25', desc: 'Standardized employee vacation, sick leave, and personal time tracking.' },
   { id: 'h6', title: 'Policies and Procedures', category: 'HR & People', price: '$69', desc: 'Operational workplace standards and procedure documentation.' },
 
   // AML & Compliance
-  { id: 'a1', title: 'AML Remediation Plan', category: 'AML & Compliance', price: '$129', desc: 'Framework for addressing audit findings and upgrading compliance controls.', popular: true },
-  { id: 'a2', title: 'AML Policy', category: 'AML & Compliance', price: '$99', desc: 'Core Anti-Money Laundering policy adapted for regulated businesses.' },
-  { id: 'a3', title: 'Compliance Manual', category: 'AML & Compliance', price: '$149', desc: 'Complete operational compliance reference manual for officers.' },
-  { id: 'a4', title: 'Risk Assessment Framework', category: 'AML & Compliance', price: '$79', desc: 'Business and customer risk evaluation methodology and matrix.' },
-  { id: 'a5', title: 'CDD Checklist', category: 'AML & Compliance', price: '$39', desc: 'Customer Due Diligence document verification checklist.' },
-  { id: 'a6', title: 'AML Training Register', category: 'AML & Compliance', price: '$29', desc: 'Log for tracking mandatory staff AML education completion.' },
+  { id: 'a2', title: 'AML Policy', category: 'AML & Compliance', price: '$200', desc: 'Core Anti-Money Laundering policy adapted for regulated businesses.', popular: true },
+  { id: 'a8', title: 'AML Procedures', category: 'AML & Compliance', price: '$350', desc: 'Operational procedures and step-by-step guidance for AML compliance execution.' },
+  { id: 'a3', title: 'Compliance Manual', category: 'AML & Compliance', price: '$350', desc: 'Complete operational compliance reference manual for officers.' },
+  { id: 'a4', title: 'Risk Assessment Framework', category: 'AML & Compliance', price: '$350', desc: 'Business and customer risk evaluation methodology and matrix.' },
+  { id: 'a5', title: 'CDD Checklist', category: 'AML & Compliance', price: '$50', desc: 'Customer Due Diligence document verification checklist.' },
+  { id: 'a6', title: 'AML Training Register', category: 'AML & Compliance', price: '$25', desc: 'Log for tracking mandatory staff AML education completion.' },
   { id: 'a7', title: 'Compliance Monitoring Template', category: 'AML & Compliance', price: '$49', desc: 'Periodic review schedule and compliance testing log.' },
 
   // Corporate Governance
-  { id: 'c1', title: 'Board Meeting Template', category: 'Corporate Governance', price: '$39', desc: 'Executive director board meeting package and agenda.' },
-  { id: 'c2', title: 'Board Minutes', category: 'Corporate Governance', price: '$29', desc: 'Formal board meeting resolution and record template.' },
-  { id: 'c3', title: 'Conflict of Interest Policy', category: 'Corporate Governance', price: '$49', desc: 'Governance framework for identifying and managing director conflicts.' },
-  { id: 'c4', title: 'Director Declaration', category: 'Corporate Governance', price: '$39', desc: 'Standard fitness and properness declaration document.' },
-  { id: 'c5', title: 'Corporate Governance Policy', category: 'Corporate Governance', price: '$89', desc: 'Board oversight and governance charter for corporate entities.' },
-  { id: 'c6', title: 'Company Incorporation Templates', category: 'Corporate Governance', price: '$119', desc: 'Starter package for forming new Cayman Islands entities.' },
-
-  // Cayman Business
-  { id: 'cb1', title: 'Trade & Business Licence Checklist', category: 'Cayman Business', price: '$29', desc: 'Step-by-step document requirements for T&B licence application.', popular: true },
-  { id: 'cb2', title: 'Cayman Business Start-Up Checklist', category: 'Cayman Business', price: '$39', desc: 'Turnkey launch roadmap for launching operations in Grand Cayman.' },
-  { id: 'cb3', title: 'Regulatory Compliance Checklist', category: 'Cayman Business', price: '$49', desc: 'Annual regulatory filing deadlines and compliance obligation tracker.' },
-  { id: 'cb4', title: 'Cayman Business Planning Resources', category: 'Cayman Business', price: '$59', desc: 'Economic statistics, licensing guidelines, and planning tools.' }
+  { id: 'c6', title: 'Company Incorporation Templates', category: 'Corporate Governance', price: '$750', desc: 'Starter package for forming new Cayman Islands entities.', popular: true },
+  { id: 'c5', title: 'Corporate Governance Policy', category: 'Corporate Governance', price: '$350', desc: 'Board oversight and governance charter for corporate entities.' },
+  { id: 'c3', title: 'Conflict of Interest Policy', category: 'Corporate Governance', price: '$350', desc: 'Governance framework for identifying and managing director conflicts.' },
+  { id: 'c2', title: 'Board Minutes', category: 'Corporate Governance', price: '$50', desc: 'Formal board meeting resolution and record template.' },
+  { id: 'c4', title: 'Director Declaration', category: 'Corporate Governance', price: '$75', desc: 'Standard fitness and properness declaration document.' },
+  { id: 'c1', title: 'Board Meeting Template', category: 'Corporate Governance', price: '$39', desc: 'Executive director board meeting package and agenda.' }
 ];
 
 export default function BusinessLibrary({ onRequestResource, isHomePage = false, onViewAll }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const categories = ['All', 'Business Essentials', 'HR & People', 'AML & Compliance', 'Corporate Governance', 'Cayman Business'];
+  const categories = ['All', 'Business Essentials', 'HR & People', 'AML & Compliance', 'Corporate Governance'];
 
   // On home page, display top 6 featured templates; otherwise filter full list
   const filteredTemplates = isHomePage
-    ? TEMPLATES_DATA.filter(item => item.popular || ['b1', 'h1', 'a1', 'a2', 'c1', 'cb1'].includes(item.id)).slice(0, 6)
+    ? TEMPLATES_DATA.filter(item => item.popular || ['b0', 'b1', 'h1', 'a2', 'c6', 'c5'].includes(item.id)).slice(0, 6)
     : TEMPLATES_DATA.filter((item) => {
         const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
         const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -242,7 +236,7 @@ export default function BusinessLibrary({ onRequestResource, isHomePage = false,
                     {item.title}
                   </h3>
 
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '24px' }}>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '24px', textAlign: 'justify' }}>
                     {item.desc}
                   </p>
                 </div>
