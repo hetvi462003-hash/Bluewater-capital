@@ -60,7 +60,7 @@ export default function StatsCounterSection() {
     {
       isText: true,
       displayVal: "Experience You can Trust",
-      label: "Tailored Business Solutions",
+      label: null,
       subText: "Experienced professionals delivering knowledgeable guidance and tailored business solutions.",
       icon: MapPin
     }
@@ -143,9 +143,11 @@ export default function StatsCounterSection() {
                   </div>
                 </div>
 
-                <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--white)' }}>
-                  {item.label}
-                </div>
+                {item.label && (
+                  <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--white)' }}>
+                    {item.label}
+                  </div>
+                )}
                 <div style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.5, textAlign: 'justify' }}>
                   {item.subText}
                 </div>
