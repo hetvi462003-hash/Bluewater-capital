@@ -226,8 +226,8 @@ export default function BusinessLibrary({ onRequestResource, isHomePage = false,
                 )}
 
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-                    <Tag size={15} color="var(--executive-blue)" />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px', paddingRight: item.popular ? '82px' : '0' }}>
+                    <Tag size={15} color="var(--executive-blue)" style={{ flexShrink: 0 }} />
                     <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--executive-blue)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                       {item.category}
                     </span>
@@ -300,20 +300,20 @@ export default function BusinessLibrary({ onRequestResource, isHomePage = false,
         {/* Legal Disclaimer Box (Rendered on dedicated page) */}
         {!isHomePage && (
           <ScrollReveal direction="up">
-            <div style={{
+            <div className="responsive-card" style={{
               backgroundColor: 'var(--light-blue)',
               borderRadius: 'var(--radius-md)',
               padding: '28px 32px',
               borderLeft: '4px solid var(--executive-blue)',
               display: 'flex',
-              gap: '20px',
+              gap: '16px',
               alignItems: 'flex-start',
               marginTop: '40px'
             }}>
               <AlertTriangle size={26} color="var(--executive-blue)" style={{ flexShrink: 0, marginTop: '2px' }} />
               <div>
                 <h4 style={{ fontSize: '1.05rem', color: 'var(--deep-navy)', marginBottom: '8px' }}>Legal Disclaimer</h4>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, textAlign: 'justify' }}>
                   Blue Water Capital templates are provided as general business resources and are intended to serve as a starting point for your organisation’s documentation. Templates should be reviewed and adapted to reflect your specific business circumstances, applicable Cayman Islands laws and regulatory requirements. Purchasing a template does not constitute legal, regulatory or professional advice.
                 </p>
               </div>

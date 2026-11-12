@@ -265,7 +265,7 @@ export default function ServicesSection({ onBookConsultation }) {
                         borderRadius: 'var(--radius-sm)',
                         boxShadow: 'var(--shadow-sm)'
                       }} className="animated-card tilt-card">
-                        <Check size={16} color="var(--executive-blue)" />
+                        <Check size={16} color="var(--executive-blue)" style={{ flexShrink: 0 }} />
                         <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--deep-navy)' }}>{service}</span>
                       </div>
                     </ScrollReveal>
@@ -277,7 +277,7 @@ export default function ServicesSection({ onBookConsultation }) {
                     <div style={{ fontWeight: 700, color: 'var(--deep-navy)', fontSize: '1.1rem', marginBottom: '4px' }}>
                       Identify the Risk. Strengthen the Framework. Protect the Business.
                     </div>
-                    <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)' }}>
+                    <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', textAlign: 'justify' }}>
                       We help businesses move beyond having policies on paper to developing compliance frameworks that are practical, proportionate and capable of standing up to regulatory scrutiny.
                     </p>
                   </div>

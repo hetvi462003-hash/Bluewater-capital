@@ -188,30 +188,32 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
                         onClick={() => setOpenFaqIndex(isOpen ? -1 : idx)}
                         style={{
                           width: '100%',
-                          padding: '20px 24px',
+                          padding: '18px 20px',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'space-between',
+                          gap: '12px',
                           background: 'none',
                           border: 'none',
                           cursor: 'pointer',
                           textAlign: 'left',
                           fontFamily: "'Outfit', sans-serif",
                           fontWeight: 600,
-                          fontSize: '1.05rem',
+                          fontSize: '1.02rem',
                           color: 'var(--deep-navy)'
                         }}
                       >
                         <span>{faq.q}</span>
-                        {isOpen ? <ChevronUp size={22} color="var(--executive-blue)" /> : <ChevronDown size={22} color="var(--executive-blue)" />}
+                        {isOpen ? <ChevronUp size={22} color="var(--executive-blue)" style={{ flexShrink: 0 }} /> : <ChevronDown size={22} color="var(--executive-blue)" style={{ flexShrink: 0 }} />}
                       </button>
 
                       {isOpen && (
                         <div style={{
-                          padding: '0 24px 24px 24px',
+                          padding: '0 20px 20px 20px',
                           color: 'var(--text-muted)',
                           fontSize: '0.95rem',
-                          lineHeight: 1.7
+                          lineHeight: 1.7,
+                          textAlign: 'justify'
                         }}>
                           {faq.a}
                         </div>
@@ -246,16 +248,16 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
           <div style={{
             maxWidth: '850px',
             margin: '0 auto',
-            textAlign: 'center',
+            textAlign: 'left',
             fontSize: '0.875rem',
             color: 'var(--text-light)',
             fontStyle: 'italic',
             display: 'flex',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             justifyContent: 'center',
             gap: '10px'
           }}>
-            <Info size={18} />
+            <Info size={18} style={{ flexShrink: 0, marginTop: '3px' }} />
             <span>Important: Information provided through our resources is for general educational purposes and should not be treated as legal, immigration or regulatory advice.</span>
           </div>
         </ScrollReveal>
