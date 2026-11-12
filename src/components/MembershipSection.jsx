@@ -75,8 +75,8 @@ export default function MembershipSection({ onJoinMembership }) {
         {/* Pricing Cards */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '36px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+          gap: '32px',
           alignItems: 'stretch'
         }}>
           {tiers.map((tier, idx) => {
@@ -84,7 +84,7 @@ export default function MembershipSection({ onJoinMembership }) {
             return (
               <ScrollReveal key={tier.name} direction="up" delay={idx * 150}>
                 <div 
-                  className="animated-card"
+                  className={tier.featured ? "animated-card responsive-card membership-featured-card" : "animated-card responsive-card"}
                   style={{
                     backgroundColor: 'var(--white)',
                     borderRadius: 'var(--radius-lg)',

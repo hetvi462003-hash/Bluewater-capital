@@ -53,7 +53,7 @@ export default function AboutCayman({ onBookConsultation }) {
         </ScrollReveal>
 
         {/* Content Box */}
-        <div style={{
+        <div className="responsive-card" style={{
           backgroundColor: 'var(--white)',
           borderRadius: 'var(--radius-lg)',
           padding: '48px',
@@ -62,8 +62,8 @@ export default function AboutCayman({ onBookConsultation }) {
         }}>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '48px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: '40px',
             alignItems: 'center'
           }}>
             <ScrollReveal direction="left">
@@ -123,14 +123,14 @@ export default function AboutCayman({ onBookConsultation }) {
 
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 210px), 1fr))',
               gap: '24px'
             }}>
               {points.map((p, idx) => {
                 const Icon = p.icon;
                 return (
                   <ScrollReveal key={idx} direction="up" delay={idx * 100}>
-                    <div className="animated-card tilt-card" style={{
+                    <div className="animated-card tilt-card responsive-card" style={{
                       padding: '28px',
                       borderRadius: 'var(--radius-md)',
                       backgroundColor: 'var(--light-blue)',
@@ -148,7 +148,7 @@ export default function AboutCayman({ onBookConsultation }) {
           </div>
 
           <ScrollReveal direction="up" delay={200}>
-            <div style={{
+            <div className="responsive-card" style={{
               marginTop: '44px',
               textAlign: 'center',
               backgroundColor: 'var(--deep-navy)',

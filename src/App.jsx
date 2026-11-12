@@ -90,7 +90,7 @@ export default function App() {
 
   // Page Banner Component for dedicated pages with executive hero layout
   const PageBanner = ({ badge, title, subtitle, bgImage }) => (
-    <div style={{
+    <div className="page-banner" style={{
       position: 'relative',
       minHeight: '44vh',
       display: 'flex',
@@ -218,7 +218,7 @@ export default function App() {
             <WhyChooseBlue onBookConsultation={() => handleOpenConsultation()} />
 
             {/* Premium CTA Banner - Home Page */}
-            <section style={{
+            <section className="responsive-section" style={{
               background: 'linear-gradient(135deg, rgba(5, 18, 35, 0.82) 0%, rgba(11, 31, 58, 0.78) 100%), url("/images/Group 1 - website photo.jpg") no-repeat center center / cover',
               padding: '100px 0',
               textAlign: 'center',
@@ -338,7 +338,7 @@ export default function App() {
 
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
                   gap: '20px'
                 }}>
                   {[
@@ -490,25 +490,26 @@ export default function App() {
       {toastMessage && (
         <div style={{
           position: 'fixed',
-          top: '24px',
-          right: '24px',
+          top: '20px',
+          right: '16px',
+          maxWidth: 'calc(100vw - 32px)',
           backgroundColor: 'rgba(11, 31, 58, 0.94)',
           color: 'var(--white)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(220, 234, 245, 0.3)',
-          padding: '14px 22px',
+          padding: '12px 18px',
           borderRadius: 'var(--radius-md)',
           boxShadow: '0 15px 35px rgba(0, 0, 0, 0.35)',
           zIndex: 999999,
           display: 'flex',
           alignItems: 'center',
-          gap: '12px',
-          fontSize: '0.9rem',
+          gap: '10px',
+          fontSize: '0.875rem',
           fontWeight: 600,
           animation: 'slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1)'
         }}>
-          <Sparkles size={18} color="var(--light-blue)" />
+          <Sparkles size={18} color="var(--light-blue)" style={{ flexShrink: 0 }} />
           <span>{toastMessage}</span>
         </div>
       )}

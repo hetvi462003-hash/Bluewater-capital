@@ -68,7 +68,7 @@ export default function CaymanCalculator({ onBookConsultation }) {
   const currentGoal = goalsData[selectedGoal];
 
   return (
-    <section style={{
+    <section className="responsive-section" style={{
       padding: '100px 0',
       backgroundColor: 'var(--soft-silver)',
       position: 'relative',
@@ -96,7 +96,7 @@ export default function CaymanCalculator({ onBookConsultation }) {
         <ScrollReveal direction="up" delay={100}>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
             gap: '16px',
             marginBottom: '36px'
           }}>
@@ -140,14 +140,14 @@ export default function CaymanCalculator({ onBookConsultation }) {
 
         {/* Results Box */}
         <ScrollReveal direction="up" delay={200}>
-          <div style={{
+          <div className="responsive-card" style={{
             backgroundColor: 'var(--white)',
             borderRadius: 'var(--radius-lg)',
             padding: '44px',
             border: '1px solid var(--border-silver)',
             boxShadow: 'var(--shadow-md)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
             gap: '36px',
             alignItems: 'center'
           }}>

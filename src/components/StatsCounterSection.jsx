@@ -67,7 +67,7 @@ export default function StatsCounterSection() {
   ];
 
   return (
-    <section style={{
+    <section className="responsive-section" style={{
       padding: '80px 0',
       backgroundColor: 'var(--deep-navy)',
       color: 'var(--white)',
@@ -91,15 +91,15 @@ export default function StatsCounterSection() {
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '32px'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))',
+          gap: '28px'
         }}>
           {stats.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div 
                 key={idx}
-                className="animated-card tilt-card"
+                className="animated-card tilt-card responsive-card"
                 style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.06)',
                   backdropFilter: 'blur(16px)',

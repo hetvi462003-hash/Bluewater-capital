@@ -39,7 +39,7 @@ export default function WhyChooseBlue({ onBookConsultation }) {
   ];
 
   return (
-    <section id="why-choose-blue" style={{
+    <section id="why-choose-blue" className="responsive-section" style={{
       padding: '110px 0',
       background: 'linear-gradient(135deg, #F0F6FB 0%, var(--light-blue) 100%)',
       position: 'relative',
@@ -65,8 +65,8 @@ export default function WhyChooseBlue({ onBookConsultation }) {
         {/* 6 Cards Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '30px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+          gap: '28px',
           marginBottom: '60px'
         }}>
           {differentiators.map((d, idx) => {
@@ -74,7 +74,7 @@ export default function WhyChooseBlue({ onBookConsultation }) {
             return (
               <ScrollReveal key={idx} direction="up" delay={idx * 100}>
                 <div 
-                  className="animated-card"
+                  className="animated-card responsive-card"
                   style={{
                     backgroundColor: 'var(--white)',
                     borderRadius: 'var(--radius-md)',
@@ -112,7 +112,7 @@ export default function WhyChooseBlue({ onBookConsultation }) {
 
         {/* Team Photo Banner */}
         <ScrollReveal direction="up" delay={200}>
-          <div style={{
+          <div className="team-banner-box" style={{
             position: 'relative',
             borderRadius: 'var(--radius-lg)',
             overflow: 'hidden',
@@ -121,9 +121,10 @@ export default function WhyChooseBlue({ onBookConsultation }) {
             <img 
               src="/images/Team building - website photo.jpg" 
               alt="Blue Water Capital Team Building" 
+              className="team-banner-img"
               style={{ width: '100%', height: '360px', objectFit: 'cover', display: 'block' }}
             />
-            <div style={{
+            <div className="team-banner-overlay" style={{
               position: 'absolute',
               inset: 0,
               background: 'linear-gradient(90deg, rgba(11, 31, 58, 0.9) 0%, rgba(11, 31, 58, 0.5) 100%)',

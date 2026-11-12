@@ -83,21 +83,22 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
         {/* Guides Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '32px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))',
+          gap: '28px',
           marginBottom: '64px'
         }}>
           {guides.map((g, idx) => (
             <ScrollReveal key={g.id} direction="up" delay={idx * 100}>
               <div 
                 id={g.id}
-                className="animated-card"
+                className="animated-card responsive-card"
                 style={{
                   backgroundColor: 'var(--soft-silver)',
                   borderRadius: 'var(--radius-md)',
                   padding: '32px',
                   border: '1px solid var(--border-light)',
-                  boxShadow: 'var(--shadow-sm)'
+                  boxShadow: 'var(--shadow-sm)',
+                  height: '100%'
                 }}
               >
                 <div style={{
@@ -113,7 +114,7 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
                   <BookOpen size={24} color="var(--executive-blue)" />
                 </div>
                 <h3 style={{ fontSize: '1.25rem', color: 'var(--deep-navy)', marginBottom: '12px' }}>{g.title}</h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{g.desc}</p>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, textAlign: 'justify' }}>{g.desc}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -121,7 +122,7 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
 
         {/* FAQ Accordion Section */}
         <ScrollReveal direction="up" delay={200}>
-          <div id="faqs" style={{
+          <div id="faqs" className="responsive-card" style={{
             maxWidth: '880px',
             margin: '0 auto 54px',
             backgroundColor: 'var(--white)',

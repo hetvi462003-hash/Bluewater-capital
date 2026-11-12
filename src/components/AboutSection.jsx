@@ -4,7 +4,7 @@ import ScrollReveal from './ScrollReveal';
 
 export default function AboutSection({ onBookConsultation }) {
   return (
-    <section id="about" style={{
+    <section id="about" className="responsive-section" style={{
       padding: '100px 0',
       backgroundColor: 'var(--white)',
       position: 'relative'
@@ -12,8 +12,8 @@ export default function AboutSection({ onBookConsultation }) {
       <div className="container">
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '60px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+          gap: '48px',
           alignItems: 'center'
         }}>
           {/* Left Column: Office & Team Photos */}
@@ -28,23 +28,27 @@ export default function AboutSection({ onBookConsultation }) {
                 <img 
                   src="/images/office picture -  website photo.jpg" 
                   alt="Blue Water Capital Offices" 
+                  className="about-photo"
                   style={{ width: '100%', height: '380px', objectFit: 'cover', display: 'block' }}
                 />
               </div>
 
               {/* Overlapping Secondary Card */}
-              <div style={{
-                position: 'absolute',
-                bottom: '-30px',
-                right: '-20px',
-                backgroundColor: 'var(--deep-navy)',
-                color: 'var(--white)',
-                padding: '24px',
-                borderRadius: 'var(--radius-md)',
-                maxWidth: '280px',
-                boxShadow: '0 15px 35px rgba(11, 31, 58, 0.25)',
-                border: '1px solid rgba(22, 75, 122, 0.3)'
-              }}>
+              <div 
+                className="about-overlap-card"
+                style={{
+                  position: 'absolute',
+                  bottom: '-30px',
+                  right: '-20px',
+                  backgroundColor: 'var(--deep-navy)',
+                  color: 'var(--white)',
+                  padding: '24px',
+                  borderRadius: 'var(--radius-md)',
+                  maxWidth: '280px',
+                  boxShadow: '0 15px 35px rgba(11, 31, 58, 0.25)',
+                  border: '1px solid rgba(22, 75, 122, 0.3)'
+                }}
+              >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
                   <Sparkles size={20} color="var(--light-blue)" />
                   <div style={{ fontWeight: 700, fontSize: '0.95rem' }}>Practical Solutions</div>

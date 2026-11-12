@@ -45,6 +45,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  width: 100%;
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -406,49 +416,143 @@ h1, h2, h3, h4, h5, h6 {
    RESPONSIVE MEDIA QUERIES FOR MOBILE & TABLET
    =================================================== */
 
+.responsive-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
 @media (max-width: 992px) {
-  .section-padding {
-    padding: 80px 0;
+  .section-padding,
+  .responsive-section {
+    padding: 72px 0 !important;
   }
   .container {
     padding: 0 24px;
   }
   .hero-grid {
     grid-template-columns: 1fr;
+    gap: 36px !important;
+  }
+  .membership-featured-card {
+    transform: none !important;
   }
 }
 
 @media (max-width: 768px) {
-  .section-padding {
-    padding: 60px 0;
+  .section-padding,
+  .responsive-section {
+    padding: 52px 0 !important;
   }
   .container {
-    padding: 0 18px;
+    padding: 0 16px;
+  }
+  .page-banner {
+    padding: 56px 0 44px !important;
+    min-height: auto !important;
   }
   h1 {
-    font-size: clamp(2rem, 7.5vw, 2.8rem) !important;
+    font-size: clamp(1.9rem, 7vw, 2.5rem) !important;
   }
   h2 {
-    font-size: clamp(1.6rem, 5.5vw, 2.2rem) !important;
+    font-size: clamp(1.5rem, 5.5vw, 2.1rem) !important;
+  }
+  h3 {
+    font-size: clamp(1.25rem, 4.5vw, 1.65rem) !important;
   }
   .btn-primary, .btn-secondary, .btn-outline-white {
-    padding: 12px 24px !important;
-    font-size: 0.95rem !important;
+    padding: 12px 20px !important;
+    font-size: 0.925rem !important;
     width: 100%;
     justify-content: center;
+  }
+  .responsive-card {
+    padding: 22px 18px !important;
+  }
+  .topbar-desktop-only {
+    display: none !important;
+  }
+  .floating-hub-desktop-only {
+    display: none !important;
+  }
+  .floating-hub-container {
+    bottom: 16px !important;
+    right: 14px !important;
+  }
+  .about-overlap-card {
+    position: static !important;
+    margin-top: 16px !important;
+    max-width: 100% !important;
+  }
+  .about-photo,
+  .hero-card-photo,
+  .library-photo {
+    height: 220px !important;
+  }
+  .team-banner-box {
+    display: flex;
+    flex-direction: column;
+  }
+  .team-banner-img {
+    height: 200px !important;
+  }
+  .team-banner-overlay {
+    position: relative !important;
+    inset: auto !important;
+    background: var(--deep-navy) !important;
+    padding: 26px 20px !important;
+  }
+  .reveal.reveal-left,
+  .reveal.reveal-right {
+    transform: translateY(24px);
+  }
+  p, div {
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 640px) {
+  .responsive-form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .responsive-modal {
+    padding: 24px 18px !important;
+  }
+  .service-tab-btn {
+    padding: 10px 14px !important;
+    font-size: 0.85rem !important;
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+  .hero-card-footer {
+    gap: 14px !important;
+    flex-wrap: wrap !important;
+  }
+  .hero-card-footer-val {
+    font-size: 1.15rem !important;
   }
 }
 
 @media (max-width: 480px) {
-  .section-padding {
-    padding: 50px 0;
+  .section-padding,
+  .responsive-section {
+    padding: 44px 0 !important;
   }
   .container {
     padding: 0 14px;
   }
+  .responsive-card {
+    padding: 18px 16px !important;
+  }
   .badge-accent {
-    font-size: 0.725rem !important;
-    padding: 4px 12px !important;
+    font-size: 0.72rem !important;
+    padding: 5px 12px !important;
+  }
+  .navbar-logo {
+    height: 40px !important;
   }
 }
 

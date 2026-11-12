@@ -57,6 +57,7 @@ export default function ResourceModal({ isOpen, onClose, resource }) {
     <div className="modal-overlay" onClick={handleClose}>
       <div 
         onClick={(e) => e.stopPropagation()}
+        className="responsive-modal"
         style={{
           backgroundColor: 'var(--white)',
           borderRadius: 'var(--radius-lg)',
@@ -139,7 +140,7 @@ export default function ResourceModal({ isOpen, onClose, resource }) {
               />
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+            <div className="responsive-form-grid">
               <div>
                 <label style={labelStyle}>Email Address *</label>
                 <input 

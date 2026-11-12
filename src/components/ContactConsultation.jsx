@@ -66,15 +66,15 @@ export default function ContactConsultation({ selectedService = '', onSuccessSub
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-          gap: '44px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+          gap: '36px',
           alignItems: 'start'
         }}>
           {/* Left Column: Contact Cards */}
           <ScrollReveal direction="left" delay={150}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
               <div 
-                className="animated-card"
+                className="animated-card responsive-card"
                 style={{
                   background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03))',
                   backdropFilter: 'blur(16px)',
@@ -111,9 +111,9 @@ export default function ContactConsultation({ selectedService = '', onSuccessSub
 
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
                     <Mail size={24} color="var(--light-blue)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                    <div>
+                    <div style={{ minWidth: 0 }}>
                       <div style={{ fontSize: '0.85rem', color: 'var(--light-blue)', textTransform: 'uppercase', fontWeight: 600, letterSpacing: '0.05em' }}>Email Enquiry</div>
-                      <a href="mailto:BluConsultancy@outlook.com" style={{ color: 'var(--white)', fontSize: '1rem', textDecoration: 'none', fontWeight: 600 }}>BluConsultancy@outlook.com</a>
+                      <a href="mailto:BluConsultancy@outlook.com" style={{ color: 'var(--white)', fontSize: '1rem', textDecoration: 'none', fontWeight: 600, wordBreak: 'break-word' }}>BluConsultancy@outlook.com</a>
                     </div>
                   </div>
 
@@ -129,7 +129,7 @@ export default function ContactConsultation({ selectedService = '', onSuccessSub
 
               {/* Consultation Promise Card */}
               <div 
-                className="animated-card"
+                className="animated-card responsive-card"
                 style={{
                   background: 'linear-gradient(135deg, rgba(57, 142, 203, 0.25), rgba(57, 142, 203, 0.08))',
                   backdropFilter: 'blur(12px)',
@@ -143,7 +143,7 @@ export default function ContactConsultation({ selectedService = '', onSuccessSub
                 <h4 style={{ fontSize: '1.1rem', color: 'var(--light-blue)', marginBottom: '10px', fontWeight: 700 }}>
                   📋 Book a Direct Consultation
                 </h4>
-                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.7 }}>
+                <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.7, textAlign: 'justify' }}>
                   A consultation gives us the opportunity to understand your circumstances, answer your questions and determine whether our services are right for you.
                 </p>
               </div>
@@ -152,7 +152,7 @@ export default function ContactConsultation({ selectedService = '', onSuccessSub
 
           {/* Right Column: Interactive Consultation Form */}
           <ScrollReveal direction="right" delay={250}>
-            <div style={{
+            <div className="responsive-card" style={{
               background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05))',
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
@@ -170,7 +170,7 @@ export default function ContactConsultation({ selectedService = '', onSuccessSub
                     Complete the form below and tell us a little about what you're trying to accomplish.
                   </p>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px' }}>
+                  <div className="responsive-form-grid">
                     <div>
                       <label style={labelStyle}>Full Name *</label>
                       <input 
@@ -195,7 +195,7 @@ export default function ContactConsultation({ selectedService = '', onSuccessSub
                     </div>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px' }}>
+                  <div className="responsive-form-grid">
                     <div>
                       <label style={labelStyle}>Phone Number *</label>
                       <input 

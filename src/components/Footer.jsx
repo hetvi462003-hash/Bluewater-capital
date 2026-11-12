@@ -32,7 +32,7 @@ export default function Footer({ onNavigate }) {
         <ScrollReveal direction="up">
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 230px), 1fr))',
             gap: '32px',
             marginBottom: '36px'
           }}>

@@ -62,6 +62,7 @@ export default function MembershipPaymentModal({ isOpen, onClose, plan }) {
     <div className="modal-overlay" onClick={handleClose}>
       <div 
         onClick={(e) => e.stopPropagation()}
+        className="responsive-modal"
         style={{
           backgroundColor: 'var(--white)',
           borderRadius: 'var(--radius-lg)',
@@ -138,7 +139,7 @@ export default function MembershipPaymentModal({ isOpen, onClose, plan }) {
                 <CreditCard size={18} />
                 <span>Payment & Bank Wire Transfer Instructions</span>
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px', fontSize: '0.85rem', color: 'var(--deep-navy)' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 190px), 1fr))', gap: '10px', fontSize: '0.85rem', color: 'var(--deep-navy)' }}>
                 <div><strong>Beneficiary:</strong> Blue Water Capital</div>
                 <div><strong>Payment Method:</strong> Bank Wire / Transfer</div>
                 <div><strong>Currency:</strong> USD or KYD</div>
@@ -154,7 +155,7 @@ export default function MembershipPaymentModal({ isOpen, onClose, plan }) {
 
             {/* Form */}
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
+              <div className="responsive-form-grid">
                 <div>
                   <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--deep-navy)', marginBottom: '6px' }}>
                     Full Name *
@@ -184,7 +185,7 @@ export default function MembershipPaymentModal({ isOpen, onClose, plan }) {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
+              <div className="responsive-form-grid">
                 <div>
                   <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--deep-navy)', marginBottom: '6px' }}>
                     Phone Number *

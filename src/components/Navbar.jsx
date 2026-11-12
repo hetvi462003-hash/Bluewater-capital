@@ -53,6 +53,7 @@ export default function Navbar({ activeTab, setActiveTab, onOpenConsultation }) 
           <img 
             src="/images/bw1.png" 
             alt="Blue Water Capital Logo" 
+            className="navbar-logo"
             style={{ height: '52px', width: 'auto', objectFit: 'contain' }}
           />
         </div>
@@ -284,6 +285,14 @@ export default function Navbar({ activeTab, setActiveTab, onOpenConsultation }) 
           <button onClick={() => navigateTo('about-cayman')} style={mobileLinkStyle}>ABOUT CAYMAN</button>
           <button onClick={() => navigateTo('why-choose-blue')} style={mobileLinkStyle}>WHY CHOOSE BLUE</button>
           <button onClick={() => navigateTo('contact')} style={mobileLinkStyle}>CONTACT US</button>
+          <button 
+            onClick={() => { setMobileMenuOpen(false); onOpenConsultation(); }} 
+            className="btn-primary" 
+            style={{ marginTop: '8px', width: '100%', justifyContent: 'center', backgroundColor: 'var(--executive-blue)' }}
+          >
+            <Calendar size={16} />
+            <span>BOOK A CONSULTATION</span>
+          </button>
         </div>
       )}
 

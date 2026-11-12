@@ -4,7 +4,7 @@ import ScrollReveal from './ScrollReveal';
 
 export default function Hero({ onExploreServices, onBookConsultation }) {
   return (
-    <section style={{
+    <section className="responsive-section" style={{
       position: 'relative',
       minHeight: '82vh',
       display: 'flex',
@@ -144,7 +144,7 @@ export default function Hero({ onExploreServices, onBookConsultation }) {
 
           {/* Hero Right Visual Card */}
           <ScrollReveal direction="right" delay={200}>
-            <div className="animate-float-slow animated-card" style={{
+            <div className="animate-float-slow animated-card responsive-card" style={{
               backgroundColor: 'var(--white)',
               borderRadius: 'var(--radius-lg)',
               padding: '32px',
@@ -162,6 +162,7 @@ export default function Hero({ onExploreServices, onBookConsultation }) {
                 <img 
                   src="/images/Group - website photo.jpg" 
                   alt="Blue Water Capital Team" 
+                  className="hero-card-photo"
                   style={{ width: '100%', height: '240px', objectFit: 'cover', display: 'block' }}
                 />
                 
@@ -197,40 +198,42 @@ export default function Hero({ onExploreServices, onBookConsultation }) {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '0.925rem', color: 'var(--text-dark)' }}>
-                  <CheckCircle2 size={18} color="#164B7A" />
+                  <CheckCircle2 size={18} color="#164B7A" style={{ flexShrink: 0 }} />
                   <span>Cayman-focused regulatory expertise</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '0.925rem', color: 'var(--text-dark)' }}>
-                  <CheckCircle2 size={18} color="#164B7A" />
+                  <CheckCircle2 size={18} color="#164B7A" style={{ flexShrink: 0 }} />
                   <span>End-to end business</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '0.925rem', color: 'var(--text-dark)' }}>
-                  <CheckCircle2 size={18} color="#164B7A" />
+                  <CheckCircle2 size={18} color="#164B7A" style={{ flexShrink: 0 }} />
                   <span>Experienced AML Officers and Directors</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '0.925rem', color: 'var(--text-dark)' }}>
-                  <CheckCircle2 size={18} color="#164B7A" />
+                  <CheckCircle2 size={18} color="#164B7A" style={{ flexShrink: 0 }} />
                   <span>Turnkey Blue Business Library Templates</span>
                 </div>
               </div>
 
-              <div style={{
+              <div className="hero-card-footer" style={{
                 marginTop: '24px',
                 paddingTop: '20px',
                 borderTop: '1px solid var(--soft-silver)',
                 display: 'flex',
                 justifyContent: 'space-between',
-                alignItems: 'center'
+                alignItems: 'center',
+                gap: '16px',
+                flexWrap: 'wrap'
               }}>
                 <div>
-                  <div style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--deep-navy)' }}>100%</div>
+                  <div className="hero-card-footer-val" style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--deep-navy)' }}>100%</div>
                   <div style={{ fontSize: '0.725rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Confidentiality</div>
                 </div>
                 <div>
-                  <div style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--deep-navy)' }}>Grand Cayman</div>
+                  <div className="hero-card-footer-val" style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--deep-navy)', whiteSpace: 'nowrap' }}>Grand Cayman</div>
                   <div style={{ fontSize: '0.725rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Elizabethan Square HQ</div>
                 </div>
-                <Award size={32} color="var(--executive-blue)" />
+                <Award size={30} color="var(--executive-blue)" style={{ flexShrink: 0 }} />
               </div>
             </div>
           </ScrollReveal>

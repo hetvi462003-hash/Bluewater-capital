@@ -6,7 +6,7 @@ export default function ServicesSection({ onBookConsultation }) {
   const [activeTab, setActiveTab] = useState('immigration');
 
   return (
-    <section id="services" style={{
+    <section id="services" className="responsive-section" style={{
       padding: '100px 0',
       backgroundColor: 'var(--soft-silver)',
       position: 'relative',
@@ -51,6 +51,7 @@ export default function ServicesSection({ onBookConsultation }) {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
+                  className="service-tab-btn"
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -77,7 +78,7 @@ export default function ServicesSection({ onBookConsultation }) {
         </ScrollReveal>
 
         {/* Active Tab Content Card Container */}
-        <div style={{
+        <div className="responsive-card" style={{
           backgroundColor: 'var(--white)',
           borderRadius: 'var(--radius-lg)',
           padding: '44px',
@@ -108,7 +109,7 @@ export default function ServicesSection({ onBookConsultation }) {
 
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
                   gap: '24px'
                 }}>
                   {[
@@ -166,7 +167,7 @@ export default function ServicesSection({ onBookConsultation }) {
 
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
                   gap: '14px',
                   marginBottom: '32px'
                 }}>
@@ -180,7 +181,7 @@ export default function ServicesSection({ onBookConsultation }) {
                   ].map((item, idx) => (
                     <ScrollReveal key={idx} direction="up" delay={idx * 60}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px', backgroundColor: 'var(--light-blue)', borderRadius: 'var(--radius-sm)' }}>
-                        <CheckCircle2 size={18} color="var(--executive-blue)" />
+                        <CheckCircle2 size={18} color="var(--executive-blue)" style={{ flexShrink: 0 }} />
                         <span style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--deep-navy)' }}>{item}</span>
                       </div>
                     </ScrollReveal>
@@ -188,7 +189,7 @@ export default function ServicesSection({ onBookConsultation }) {
                 </div>
 
                 <ScrollReveal direction="up" delay={200}>
-                  <div style={{
+                  <div className="responsive-card" style={{
                     backgroundColor: 'var(--deep-navy)',
                     color: 'var(--white)',
                     padding: '32px',
@@ -235,7 +236,7 @@ export default function ServicesSection({ onBookConsultation }) {
 
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
                   gap: '12px',
                   marginBottom: '32px'
                 }}>
@@ -308,7 +309,7 @@ export default function ServicesSection({ onBookConsultation }) {
 
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
                   gap: '20px',
                   marginBottom: '32px'
                 }}>
@@ -372,7 +373,7 @@ export default function ServicesSection({ onBookConsultation }) {
 
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 210px), 1fr))',
                   gap: '16px',
                   marginBottom: '32px'
                 }}>

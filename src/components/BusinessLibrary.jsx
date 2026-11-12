@@ -63,10 +63,10 @@ export default function BusinessLibrary({ onRequestResource, isHomePage = false,
         <ScrollReveal direction="up">
           <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
-            gap: '50px', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 290px), 1fr))', 
+            gap: '40px', 
             alignItems: 'center',
-            marginBottom: '60px'
+            marginBottom: '50px'
           }}>
             <div style={{ maxWidth: '600px' }}>
               <div className="badge-accent" style={{ marginBottom: '16px' }}>
@@ -75,7 +75,7 @@ export default function BusinessLibrary({ onRequestResource, isHomePage = false,
               <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3rem)', color: 'var(--deep-navy)', marginBottom: '18px' }}>
                 Professional Documents <span style={{ color: 'var(--executive-blue)' }}>Without Starting from a Blank Page</span>
               </h2>
-              <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '14px', lineHeight: 1.7 }}>
+              <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '14px', lineHeight: 1.7, textAlign: 'justify' }}>
                 The Blue Business Library gives entrepreneurs, business owners and professionals access to professionally prepared, practical business templates designed to save time.
               </p>
               <div style={{
@@ -99,6 +99,7 @@ export default function BusinessLibrary({ onRequestResource, isHomePage = false,
               <img 
                 src="/images/employee.jpg" 
                 alt="Blue Water Capital Professional" 
+                className="library-photo"
                 style={{ 
                   width: '100%', 
                   height: '350px', 
@@ -114,7 +115,7 @@ export default function BusinessLibrary({ onRequestResource, isHomePage = false,
         {/* Search & Category Filter Bar (Hidden on Home page for crisp layout) */}
         {!isHomePage && (
           <ScrollReveal direction="up" delay={100}>
-            <div style={{
+            <div className="responsive-card" style={{
               backgroundColor: 'var(--soft-silver)',
               borderRadius: 'var(--radius-lg)',
               padding: '32px',
@@ -185,14 +186,14 @@ export default function BusinessLibrary({ onRequestResource, isHomePage = false,
         {/* Templates Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(330px, 1fr))',
-          gap: '32px',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 290px), 1fr))',
+          gap: '28px',
           marginBottom: '64px'
         }}>
           {filteredTemplates.map((item, idx) => (
             <ScrollReveal key={`${item.id}-${selectedCategory}`} direction="up" delay={(idx % 6) * 70}>
               <div 
-                className="animated-card"
+                className="animated-card responsive-card"
                 style={{
                   backgroundColor: 'var(--white)',
                   borderRadius: 'var(--radius-md)',
@@ -246,7 +247,9 @@ export default function BusinessLibrary({ onRequestResource, isHomePage = false,
                   borderTop: '1px solid var(--soft-silver)',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'space-between'
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  gap: '12px'
                 }}>
                   <div>
                     <div style={{ fontSize: '0.75rem', color: 'var(--text-light)' }}>One-time price</div>

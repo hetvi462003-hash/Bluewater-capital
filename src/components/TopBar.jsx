@@ -18,7 +18,7 @@ export default function TopBar() {
         gap: '12px'
       }}>
         {/* Left Side: Contact Info */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
           <a href="tel:925-4722" style={{ color: 'inherit', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}>
             <Phone size={14} color="var(--light-blue)" />
             <span>925-4722</span>
@@ -27,14 +27,14 @@ export default function TopBar() {
             <Mail size={14} color="var(--light-blue)" />
             <span>BluConsultancy@outlook.com</span>
           </a>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <div className="topbar-desktop-only" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <MapPin size={14} color="var(--light-blue)" />
             <span>80 Shedden Road, Elizabethan Square, George Town, Grand Cayman</span>
           </div>
         </div>
 
         {/* Right Side: Hours */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <div className="topbar-desktop-only" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <Clock size={14} color="var(--light-blue)" />
           <span>Mon – Fri: 10am – 3pm</span>
         </div>

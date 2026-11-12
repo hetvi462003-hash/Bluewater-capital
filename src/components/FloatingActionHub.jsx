@@ -17,20 +17,24 @@ export default function FloatingActionHub({ onOpenConsultation }) {
   };
 
   return (
-    <div style={{
-      position: 'fixed',
-      bottom: '24px',
-      right: '24px',
-      zIndex: 990,
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '12px',
-      alignItems: 'flex-end'
-    }}>
-      {/* Phone Call Quick Link */}
+    <div 
+      className="floating-hub-container"
+      style={{
+        position: 'fixed',
+        bottom: '24px',
+        right: '24px',
+        zIndex: 990,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '12px',
+        alignItems: 'flex-end'
+      }}
+    >
+      {/* Phone Call Quick Link (Desktop only so mobile text is never obscured) */}
       <a 
         href="tel:925-4722"
         title="Call Blue Water Capital (925-4722)"
+        className="floating-hub-desktop-only"
         style={{
           width: '48px',
           height: '48px',
@@ -49,10 +53,10 @@ export default function FloatingActionHub({ onOpenConsultation }) {
         <Phone size={20} color="var(--light-blue)" />
       </a>
 
-      {/* Instant Consultation Trigger Floating Badge */}
+      {/* Instant Consultation Trigger Floating Badge (Desktop only) */}
       <button
         onClick={() => onOpenConsultation()}
-        className="animate-pulse-glow"
+        className="animate-pulse-glow floating-hub-desktop-only"
         style={{
           backgroundColor: 'var(--executive-blue)',
           color: 'var(--white)',
