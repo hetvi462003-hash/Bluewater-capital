@@ -72,19 +72,16 @@ export default function App() {
   const handleOpenConsultation = (serviceName = '') => {
     setConsultationInitialService(serviceName);
     setIsConsultationModalOpen(true);
-    showToast(`Initializing consultation for ${serviceName || 'General Enquiry'}...`);
   };
 
   const handleRequestResource = (resource) => {
     setSelectedResource(resource);
     setIsResourceModalOpen(true);
-    showToast(`Opening preview for ${resource.title}...`);
   };
 
   const handleJoinMembership = (planName) => {
     setSelectedMembershipPlan(planName);
     setIsMembershipModalOpen(true);
-    showToast(`Opening payment & transfer details for ${typeof planName === 'string' ? planName : planName.name} Plan...`);
   };
 
 

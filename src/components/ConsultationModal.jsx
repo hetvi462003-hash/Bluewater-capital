@@ -89,8 +89,8 @@ export default function ConsultationModal({ isOpen, onClose, initialService = ''
 
         {!submitted ? (
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
-              <Calendar size={24} color="var(--executive-blue)" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px', paddingRight: '40px' }}>
+              <Calendar size={24} color="var(--executive-blue)" style={{ flexShrink: 0 }} />
               <h3 style={{ fontSize: '1.4rem', color: 'var(--deep-navy)' }}>Book a Consultation</h3>
             </div>
             <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginBottom: '10px' }}>

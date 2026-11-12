@@ -101,20 +101,21 @@ export default function MembershipPaymentModal({ isOpen, onClose, plan }) {
 
         {!submitted ? (
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px', paddingRight: '46px', flexWrap: 'wrap' }}>
               <div style={{
                 backgroundColor: 'var(--light-blue)',
                 padding: '6px 12px',
                 borderRadius: '16px',
-                fontSize: '0.8rem',
+                fontSize: '0.78rem',
                 fontWeight: 700,
                 color: 'var(--executive-blue)',
-                textTransform: 'uppercase'
+                textTransform: 'uppercase',
+                whiteSpace: 'nowrap'
               }}>
                 Membership Subscription
               </div>
               {planPrice && (
-                <span style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--deep-navy)' }}>
+                <span style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--deep-navy)', whiteSpace: 'nowrap' }}>
                   {planPrice}
                 </span>
               )}

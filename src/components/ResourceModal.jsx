@@ -87,7 +87,7 @@ export default function ResourceModal({ isOpen, onClose, resource }) {
 
         {!submitted ? (
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', paddingRight: '40px' }}>
               <div style={{
                 width: '40px',
                 height: '40px',
@@ -95,7 +95,8 @@ export default function ResourceModal({ isOpen, onClose, resource }) {
                 backgroundColor: 'var(--light-blue)',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                flexShrink: 0
               }}>
                 <FileText size={22} color="var(--executive-blue)" />
               </div>

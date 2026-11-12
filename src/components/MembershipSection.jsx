@@ -103,23 +103,25 @@ export default function MembershipSection({ onJoinMembership }) {
                   {tier.featured && (
                     <div style={{
                       position: 'absolute',
-                      top: '-14px',
+                      top: 0,
                       left: '50%',
                       transform: 'translateX(-50%)',
                       backgroundColor: 'var(--executive-blue)',
                       color: 'var(--white)',
-                      fontSize: '0.75rem',
+                      fontSize: '0.72rem',
                       fontWeight: 800,
-                      padding: '5px 20px',
-                      borderRadius: '20px',
+                      padding: '6px 20px',
+                      borderRadius: '0 0 14px 14px',
                       letterSpacing: '0.08em',
-                      textTransform: 'uppercase'
+                      textTransform: 'uppercase',
+                      whiteSpace: 'nowrap',
+                      zIndex: 3
                     }}>
                       MOST POPULAR
                     </div>
                   )}
 
-                  <div>
+                  <div style={{ paddingTop: tier.featured ? '16px' : '0' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '16px' }}>
                       <div style={{
                         width: '46px',
