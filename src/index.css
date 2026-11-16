@@ -506,6 +506,12 @@ h1, h2, h3, h4, h5, h6 {
   .reveal.reveal-right {
     transform: translateY(24px);
   }
+  /* Reset desktop text-justify on mobile so word spacing is clean and natural */
+  p, 
+  [style*="text-align: justify"],
+  [style*="text-align:justify"] {
+    text-align: left !important;
+  }
   p, div {
     overflow-wrap: break-word;
   }
