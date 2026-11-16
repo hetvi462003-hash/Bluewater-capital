@@ -140,15 +140,22 @@ export default function App() {
             {title}
           </h1>
           {subtitle && (
-            <p style={{
-              fontSize: '1.15rem',
+            <p className="page-banner-subtitle" style={{
+              fontSize: 'clamp(0.92rem, 2.2vw, 1.15rem)',
               color: 'var(--light-blue)',
-              maxWidth: '750px',
+              maxWidth: '780px',
               margin: '0 auto',
               lineHeight: 1.65,
               fontWeight: 500
             }}>
-              {subtitle}
+              {typeof subtitle === 'string' && subtitle.includes(' • ')
+                ? subtitle.split(' • ').map((item, idx, arr) => (
+                    <React.Fragment key={idx}>
+                      <span style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>{item}</span>
+                      {idx < arr.length - 1 && <span style={{ margin: '0 8px', opacity: 0.7 }}>•</span>}
+                    </React.Fragment>
+                  ))
+                : subtitle}
             </p>
           )}
         </ScrollReveal>

@@ -108,10 +108,10 @@ export default function AboutSection({ onBookConsultation }) {
                 <p style={{
                   fontFamily: "'Outfit', sans-serif",
                   fontSize: '1.15rem',
-                  fontWeight: 700,
+                  fontWeight: 600,
                   color: 'var(--deep-navy)',
-                  fontStyle: 'italic',
-                  lineHeight: 1.4
+                  fontStyle: 'normal',
+                  lineHeight: 1.45
                 }}>
                   "We don’t just process applications. We help our clients understand the process."
                 </p>

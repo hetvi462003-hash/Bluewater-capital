@@ -507,8 +507,6 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(24px);
   }
   p, div {
-    -webkit-hyphens: auto;
-    hyphens: auto;
     overflow-wrap: break-word;
   }
 }
@@ -553,6 +551,10 @@ h1, h2, h3, h4, h5, h6 {
   }
   .navbar-logo {
     height: 40px !important;
+  }
+  .page-banner-subtitle {
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
   }
 }
 
