@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, FileText, ChevronDown, ChevronUp, HelpCircle, AlertCircle, Info } from 'lucide-react';
+import { BookOpen, FileText, ChevronDown, ChevronUp, HelpCircle, AlertCircle, Info, Download, FileDown } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 export default function ResourcesSection({ isHomePage = false, onViewAll }) {
@@ -10,22 +10,34 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
     {
       id: 'immigration-guides',
       title: 'Immigration Guides',
-      desc: 'Helpful information for individuals navigating Cayman immigration matters, Permanent Residence points, work permit procedures, and citizenship pathways.'
+      desc: 'Official guidance and helpful information for individuals navigating Cayman immigration matters, Permanent Residence points, work permit procedures, and citizenship pathways.',
+      fileName: 'Cayman-Protection-Act-Immigration-Guide.pdf',
+      fileTitle: 'Caymanian Protection Act - Immigration Reform Guidebook',
+      fileSize: '8.1 MB'
     },
     {
       id: 'business-guides',
       title: 'Business Guides',
-      desc: 'Practical information for entrepreneurs and businesses establishing operations in Grand Cayman, trade & business licensing, and corporate structures.'
+      desc: 'Practical guidance for entrepreneurs, investors and companies establishing operations, trade & business licensing, relocation and corporate structures in Grand Cayman.',
+      fileName: 'Cayman-Islands-Travel-Business-Guide.pdf',
+      fileTitle: 'Cayman Islands Business & Travel Guide',
+      fileSize: '1.7 MB'
     },
     {
       id: 'compliance-resources',
       title: 'Compliance Resources',
-      desc: 'Educational content covering AML policies, Customer Due Diligence (CDD), risk management, FATCA & CRS reporting, and regulatory readiness.'
+      desc: 'Official CIMA guidance notes covering AML/CFT/CPF policies, Customer Due Diligence (CDD), risk management, and regulatory compliance frameworks.',
+      fileName: 'CIMA-AML-Compliance-Guidance-Notes.pdf',
+      fileTitle: 'CIMA AML/CFT/CPF Guidance Notes',
+      fileSize: '3.4 MB'
     },
     {
       id: 'cayman-guides',
       title: 'Cayman Guides',
-      desc: 'Information about Caymanian history, culture, civic institutions, business environment, and living in the Cayman Islands.'
+      desc: 'Comprehensive visitor information covering Grand Cayman history, culture, civic institutions, business environment, beaches, and living in the Cayman Islands.',
+      fileName: 'Grand-Cayman-Visitor-Guide.pdf',
+      fileTitle: 'Grand Cayman Visitor & Living Guide',
+      fileSize: '474 KB'
     }
   ];
 
@@ -83,7 +95,7 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
         {/* Guides Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
           gap: '28px',
           marginBottom: '64px'
         }}>
@@ -98,23 +110,76 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
                   padding: '32px',
                   border: '1px solid var(--border-light)',
                   boxShadow: 'var(--shadow-sm)',
-                  height: '100%'
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  boxSizing: 'border-box'
                 }}
               >
-                <div style={{
-                  width: '48px',
-                  height: '48px',
-                  borderRadius: '12px',
-                  backgroundColor: 'var(--light-blue)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '20px'
-                }}>
-                  <BookOpen size={24} color="var(--executive-blue)" />
+                <div>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    marginBottom: '20px'
+                  }}>
+                    <div style={{
+                      width: '48px',
+                      height: '48px',
+                      borderRadius: '12px',
+                      backgroundColor: 'var(--light-blue)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}>
+                      <BookOpen size={24} color="var(--executive-blue)" />
+                    </div>
+                    <span style={{
+                      fontSize: '0.78rem',
+                      fontWeight: 600,
+                      color: 'var(--executive-blue)',
+                      backgroundColor: 'var(--light-blue)',
+                      padding: '4px 10px',
+                      borderRadius: '12px',
+                      border: '1px solid rgba(0, 102, 204, 0.18)',
+                      letterSpacing: '0.3px'
+                    }}>
+                      PDF • {g.fileSize}
+                    </span>
+                  </div>
+
+                  <h3 style={{ fontSize: '1.25rem', color: 'var(--deep-navy)', marginBottom: '12px' }}>{g.title}</h3>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, textAlign: 'justify', marginBottom: '24px' }}>
+                    {g.desc}
+                  </p>
                 </div>
-                <h3 style={{ fontSize: '1.25rem', color: 'var(--deep-navy)', marginBottom: '12px' }}>{g.title}</h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.6, textAlign: 'justify' }}>{g.desc}</p>
+
+                <div style={{ marginTop: 'auto', paddingTop: '18px', borderTop: '1px solid rgba(0, 32, 91, 0.08)' }}>
+                  <a 
+                    href={`/documents/${g.fileName}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px',
+                      width: '100%',
+                      padding: '11px 16px',
+                      fontSize: '0.88rem',
+                      fontWeight: 600,
+                      borderRadius: 'var(--radius-sm)',
+                      textDecoration: 'none',
+                      boxSizing: 'border-box',
+                      transition: 'all 0.25s ease'
+                    }}
+                  >
+                    <Download size={16} />
+                    <span>Download Guide</span>
+                  </a>
+                </div>
               </div>
             </ScrollReveal>
           ))}
