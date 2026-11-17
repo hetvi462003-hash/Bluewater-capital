@@ -83,8 +83,8 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
     }
   ];
 
-  const allFilteredFaqs = faqs.filter(f => 
-    f.q.toLowerCase().includes(faqSearchQuery.toLowerCase()) || 
+  const allFilteredFaqs = faqs.filter(f =>
+    f.q.toLowerCase().includes(faqSearchQuery.toLowerCase()) ||
     f.a.toLowerCase().includes(faqSearchQuery.toLowerCase())
   );
 
@@ -120,7 +120,7 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
         }}>
           {guides.map((g, idx) => (
             <ScrollReveal key={g.id} direction="up" delay={idx * 100}>
-              <div 
+              <div
                 id={g.id}
                 className="animated-card responsive-card"
                 style={{
@@ -178,7 +178,7 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
                   {g.files.length > 0 ? (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                       {g.files.map((file, fIdx) => (
-                        <a 
+                        <a
                           key={fIdx}
                           href={`/documents/${file.fileName}`}
                           target="_blank"
@@ -254,7 +254,7 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
               {/* Live FAQ Quick Search Input (Rendered on dedicated page) */}
               {!isHomePage && (
                 <div style={{ position: 'relative', width: '100%', maxWidth: '300px' }}>
-                  <input 
+                  <input
                     type="text"
                     placeholder="Quick search questions..."
                     value={faqSearchQuery}
@@ -280,7 +280,7 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
                 filteredFaqs.map((faq, idx) => {
                   const isOpen = openFaqIndex === idx;
                   return (
-                    <div 
+                    <div
                       key={idx}
                       className={`faq-item-glow ${isOpen ? 'active-faq' : ''}`}
                       style={{
@@ -338,7 +338,7 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
             {/* View All FAQs CTA on Home Page */}
             {isHomePage && onViewAll && (
               <div style={{ textAlign: 'center', marginTop: '28px', paddingTop: '20px', borderTop: '1px solid var(--soft-silver)' }}>
-                <button 
+                <button
                   onClick={onViewAll}
                   className="btn-primary"
                   style={{ padding: '12px 28px', fontSize: '0.95rem' }}
