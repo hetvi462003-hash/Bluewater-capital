@@ -11,33 +11,52 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
       id: 'immigration-guides',
       title: 'Immigration Guides',
       desc: 'Official guidance and helpful information for individuals navigating Cayman immigration matters, Permanent Residence points, work permit procedures, and citizenship pathways.',
-      fileName: 'Cayman-Protection-Act-Immigration-Guide.pdf',
-      fileTitle: 'Caymanian Protection Act - Immigration Reform Guidebook',
-      fileSize: '8.1 MB'
+      badge: 'PDF • 8.1 MB',
+      files: [
+        {
+          fileName: 'Cayman-Protection-Act-Immigration-Guide.pdf',
+          label: 'Download Guide',
+          size: '8.1 MB'
+        }
+      ]
     },
     {
       id: 'business-guides',
       title: 'Business Guides',
       desc: 'Practical guidance for entrepreneurs, investors and companies establishing operations, trade & business licensing, relocation and corporate structures in Grand Cayman.',
-      fileName: 'Cayman-Islands-Travel-Business-Guide.pdf',
-      fileTitle: 'Cayman Islands Business & Travel Guide',
-      fileSize: '1.7 MB'
+      badge: 'Coming Soon',
+      files: []
     },
     {
       id: 'compliance-resources',
       title: 'Compliance Resources',
       desc: 'Official CIMA guidance notes covering AML/CFT/CPF policies, Customer Due Diligence (CDD), risk management, and regulatory compliance frameworks.',
-      fileName: 'CIMA-AML-Compliance-Guidance-Notes.pdf',
-      fileTitle: 'CIMA AML/CFT/CPF Guidance Notes',
-      fileSize: '3.4 MB'
+      badge: 'PDF • 3.4 MB',
+      files: [
+        {
+          fileName: 'CIMA-AML-Compliance-Guidance-Notes.pdf',
+          label: 'Download Guide',
+          size: '3.4 MB'
+        }
+      ]
     },
     {
       id: 'cayman-guides',
       title: 'Cayman Guides',
-      desc: 'Comprehensive visitor information covering Grand Cayman history, culture, civic institutions, business environment, beaches, and living in the Cayman Islands.',
-      fileName: 'Grand-Cayman-Visitor-Guide.pdf',
-      fileTitle: 'Grand Cayman Visitor & Living Guide',
-      fileSize: '474 KB'
+      desc: 'Comprehensive visitor and living information covering Grand Cayman history, culture, civic institutions, business environment, beaches, and island life.',
+      badge: '2 Guides Available',
+      files: [
+        {
+          fileName: 'Grand-Cayman-Visitor-Guide.pdf',
+          label: 'Visitor Guide',
+          size: '474 KB'
+        },
+        {
+          fileName: 'Cayman-Islands-Travel-Business-Guide.pdf',
+          label: 'Travel & Island Guide',
+          size: '1.7 MB'
+        }
+      ]
     }
   ];
 
@@ -138,14 +157,14 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
                     <span style={{
                       fontSize: '0.78rem',
                       fontWeight: 600,
-                      color: 'var(--executive-blue)',
-                      backgroundColor: 'var(--light-blue)',
+                      color: g.files.length > 0 ? 'var(--executive-blue)' : 'var(--text-muted)',
+                      backgroundColor: g.files.length > 0 ? 'var(--light-blue)' : 'rgba(0, 32, 91, 0.05)',
                       padding: '4px 10px',
                       borderRadius: '12px',
-                      border: '1px solid rgba(0, 102, 204, 0.18)',
+                      border: g.files.length > 0 ? '1px solid rgba(0, 102, 204, 0.18)' : '1px solid var(--border-silver)',
                       letterSpacing: '0.3px'
                     }}>
-                      PDF • {g.fileSize}
+                      {g.badge}
                     </span>
                   </div>
 
@@ -156,29 +175,52 @@ export default function ResourcesSection({ isHomePage = false, onViewAll }) {
                 </div>
 
                 <div style={{ marginTop: 'auto', paddingTop: '18px', borderTop: '1px solid rgba(0, 32, 91, 0.08)' }}>
-                  <a 
-                    href={`/documents/${g.fileName}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-secondary"
-                    style={{
-                      display: 'inline-flex',
+                  {g.files.length > 0 ? (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      {g.files.map((file, fIdx) => (
+                        <a 
+                          key={fIdx}
+                          href={`/documents/${file.fileName}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-secondary"
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: '8px',
+                            width: '100%',
+                            padding: '10px 14px',
+                            fontSize: '0.86rem',
+                            fontWeight: 600,
+                            borderRadius: 'var(--radius-sm)',
+                            textDecoration: 'none',
+                            boxSizing: 'border-box',
+                            transition: 'all 0.25s ease'
+                          }}
+                        >
+                          <Download size={15} />
+                          <span>{file.label} <span style={{ opacity: 0.75, fontSize: '0.78rem', fontWeight: 500 }}>({file.size})</span></span>
+                        </a>
+                      ))}
+                    </div>
+                  ) : (
+                    <div style={{
+                      display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      gap: '8px',
-                      width: '100%',
-                      padding: '11px 16px',
-                      fontSize: '0.88rem',
-                      fontWeight: 600,
+                      padding: '11px 14px',
+                      fontSize: '0.84rem',
+                      color: 'var(--text-muted)',
+                      backgroundColor: 'rgba(0, 32, 91, 0.03)',
                       borderRadius: 'var(--radius-sm)',
-                      textDecoration: 'none',
-                      boxSizing: 'border-box',
-                      transition: 'all 0.25s ease'
-                    }}
-                  >
-                    <Download size={16} />
-                    <span>Download Guide</span>
-                  </a>
+                      border: '1px dashed var(--border-silver)',
+                      fontStyle: 'italic',
+                      textAlign: 'center'
+                    }}>
+                      <span>Guides coming soon</span>
+                    </div>
+                  )}
                 </div>
               </div>
             </ScrollReveal>
